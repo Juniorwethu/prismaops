@@ -1,26 +1,35 @@
+// src/App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { Layout } from './components/Layout';
+import { LandingPage } from './pages/LandingPage';
+import { Services } from './pages/Services';
+import { Portfolio } from './pages/Portfolio';
+import { GithubTraining } from './pages/GithubTraining';
+import ContactUs from './pages/ContactUs';
+import { Sample } from './pages/Sample';
+import { WebUIDesign } from './pages/WebUIDesign';
+import { GraphicDesign } from './pages/GraphicDesign';
 
-function App() {
+export const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/sample" element={<Sample />} />
+            <Route path="/github-training" element={<GithubTraining />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/web-ui-design" element={<WebUIDesign />} />
+            <Route path="/graphic-design" element={<GraphicDesign />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </ThemeProvider>
   );
-}
+};
 
-export default App;

@@ -5,9 +5,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #111 !important;
+  color: #fff !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+main, section {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+/* Hide toggle button on large screens */
+@media (min-width: 768px) {
+  .toggle-button {
+    display: none !important;
+  }
+}
+
