@@ -16,11 +16,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 main, section {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    padding: 0 1rem;
+  }
+  main, section {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+  main, section {
+    padding: 0.5rem;
+  }
+}
+
 /* Hide toggle button on large screens */
 @media (min-width: 768px) {
   .toggle-button {

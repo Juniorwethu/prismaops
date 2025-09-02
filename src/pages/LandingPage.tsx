@@ -41,7 +41,7 @@ export const LandingPage: React.FC = () => {
       >
 
         <img
-        src="/logoo.jpg"
+        src="/logo.jpg"
         alt="PrismaOps Logo"
         style={{ 
           width: isSidebarCollapsed ? 400 : 260, 
@@ -49,7 +49,7 @@ export const LandingPage: React.FC = () => {
           objectFit: 'contain', 
           marginBottom: '1rem',
           filter: 'none',
-          transform: 'rotate(-0.2deg)',
+          transform: 'rotate(-0.5deg)',
 
           transition: 'width 0.3s ease',
         }}
