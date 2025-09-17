@@ -1,0 +1,177 @@
+.landingSection {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 0 5vw;
+  box-sizing: border-box;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.introContainer {
+  flex: 1 1 300px;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  min-width: 280px;
+  transition: all 0.3s ease;
+}
+
+.introContainer.collapsed {
+  flex: 2 1 600px;
+  max-width: 700px;
+  align-items: center;
+}
+
+.logo {
+  width: 260px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  filter: none;
+  transform: rotate(-0.5deg);
+  transition: width 0.3s ease;
+}
+
+.logo.collapsed {
+  width: 400px;
+}
+
+.title {
+  font-size: 2.8rem;
+  color: #2764b4ff;
+  line-height: 1.1;
+  margin: 0;
+  transition: font-size 0.3s ease;
+}
+
+.title.collapsed {
+  font-size: 3.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.featureCardsContainer {
+  flex: 2 1 600px;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 320px;
+  max-width: 900px;
+}
+
+.featureCard {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5), 0 0 12px 2px #2764b420;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  flex: 1 1 280px;
+  box-sizing: border-box;
+  color: #ccc;
+  min-width: 280px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.featureCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 0 24px 8px #2764b4aa;
+}
+
+.cardTitle {
+  margin-bottom: 0.7rem;
+  font-size: 1.25rem;
+  color: #2764b4ff;
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin: 0;
+}
+
+.footerCta {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #bbb;
+  font-weight: 600;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .landingSection {
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 1rem;
+    height: auto;
+  }
+
+  .introContainer,
+  .introContainer.collapsed {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .logo,
+  .logo.collapsed {
+    width: 200px;
+  }
+
+  .title,
+  .title.collapsed {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .featureCardsContainer {
+    max-width: 100%;
+  }
+
+  .footerCta {
+    position: static;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title,
+  .title.collapsed {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .featureCard {
+    padding: 1rem 1.5rem;
+  }
+}

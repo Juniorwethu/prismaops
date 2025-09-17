@@ -1,0 +1,259 @@
+/* src/pages/ContactUs.module.css */
+.contactUsSection {
+  min-height: 100vh;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 2rem 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.contactUsSection.collapsed {
+  padding: 2rem 10vw;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  transition: max-width 0.3s ease;
+}
+
+.header.collapsed {
+  max-width: 1200px;
+}
+
+.title {
+  font-size: 3rem;
+  color: #2764b4ff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  transition: font-size 0.3s ease;
+}
+
+.title.collapsed {
+  font-size: 4rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  line-height: 1.5;
+  margin-bottom: 0;
+  transition: font-size 0.3s ease;
+}
+
+.subtitle.collapsed {
+  font-size: 1.5rem;
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.contactInfo,
+.contactFormContainer {
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.contactInfo {
+  flex: 1 1 300px;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.contactFormContainer {
+  flex: 1 1 400px;
+  min-width: 400px;
+  max-width: 600px;
+}
+
+.sectionTitle {
+  color: #2764b4ff;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.infoGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.infoIcon {
+  font-size: 1.5rem;
+}
+
+.infoTitle {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.infoLink {
+  color: #2764b4ff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.infoLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.infoText {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup label {
+  display: block;
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.formInput,
+.formTextarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  width: 100%;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  color: #111;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  border-color: #2764b4ff;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitButton {
+  background-color: #2764b4ff;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.submitButton:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitButton:not(:disabled):hover {
+  background-color: #0056d3;
+  transform: scale(1.02);
+}
+
+.additionalCta {
+  text-align: center;
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 800px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.ctaTitle {
+  color: #2764b4ff;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.ctaText {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contactUsSection,
+  .contactUsSection.collapsed {
+    padding: 2rem 1rem;
+  }
+
+  .title,
+  .title.collapsed {
+    font-size: 2.5rem;
+  }
+
+  .subtitle,
+  .subtitle.collapsed {
+    font-size: 1.1rem;
+  }
+
+  .contentWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contactInfo,
+  .contactFormContainer {
+    max-width: 100%;
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title,
+  .title.collapsed {
+    font-size: 2rem;
+  }
+
+  .subtitle,
+  .subtitle.collapsed {
+    font-size: 1rem;
+  }
+
+  .contactInfo,
+  .contactFormContainer,
+  .additionalCta {
+    padding: 1.5rem;
+  }
+}

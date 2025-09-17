@@ -1,6 +1,7 @@
 // src/pages/Services.tsx
 import React, { useContext } from 'react';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
+import styles from './Services.module.css';
 
 const servicesData = [
   {
@@ -158,102 +159,29 @@ const servicesData = [
 export const Services: React.FC = () => {
   const { isSidebarCollapsed } = useContext(SidebarCollapseContext);
   return (
-    <section
-      style={{
-        padding: isSidebarCollapsed ? '4rem 12vw' : '4rem 6vw',
-        backgroundColor: '#111',
-        color: '#fff',
-        fontFamily: 'Segoe UI, sans-serif',
-        minHeight: '100vh',
-        boxSizing: 'border-box',
-        overflowY: 'auto',
-        overflowX: 'hidden',
-      }}
-    >
-      <h1
-        style={{
-          color: '#000000ff',
-          fontSize: isSidebarCollapsed ? '4rem' : '3rem',
-          marginBottom: '2.5rem',
-          textAlign: 'center',
-          fontWeight: '700',
-          transition: 'font-size 0.3s ease',
-        }}
-      >
+    <section className={`${styles.servicesSection} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
+      <h1 className={`${styles.title} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
         Our Services
       </h1>
 
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '2rem',
-          justifyContent: 'center',
-        }}
-      >
+      <div className={styles.servicesGrid}>
         {servicesData.map((service, idx) => (
-          <div
-            key={idx}
-            style={{
-              backgroundColor: '#1e1e1e',
-              borderRadius: 16,
-              padding: '2rem',
-              maxWidth: 'calc(50% - 1rem)',
-              flex: '1 1 calc(50% - 1rem)',
-              boxShadow: '0 4px 15px rgba(218, 17, 17, 0.18), 0 0 12px 2px #da111120',
-              display: 'flex',
-              flexDirection: 'column',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              cursor: 'default',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.05)';
-              (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 25px #da1111aa, 0 0 24px 8px #da1111aa';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)';
-              (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 15px rgba(218, 17, 17, 0.18), 0 0 12px 2px #da111120';
-            }}
-          >
-            <h2
-              style={{
-                color: '#25a1e9ff',
-                fontSize: '1.5rem',
-                marginBottom: '1rem',
-                fontWeight: '600',
-              }}
-            >
+          <div key={idx} className={styles.serviceCard}>
+            <h2 className={styles.serviceTitle}>
               {service.title}
             </h2>
 
-            <ul
-              style={{
-                listStyleType: 'disc',
-                paddingLeft: '1.25rem',
-                marginBottom: '1.5rem',
-                color: '#aaa',
-                fontSize: '0.95rem',
-                lineHeight: 1.5,
-                flexGrow: 1,
-              }}
-            >
+            <ul className={styles.featuresList}>
               {service.features.map((feature, i) => (
-                <li key={i} style={{ marginBottom: '0.5rem' }}>
+                <li key={i} className={styles.featureItem}>
                   {feature}
                 </li>
               ))}
             </ul>
 
-            <div
-              style={{
-                borderTop: '1px solid #444',
-                paddingTop: '1rem',
-                fontSize: '0.95rem',
-                color: '#ddd',
-              }}
-            >
+            <div className={styles.pricing}>
               {service.pricing.map((priceItem, i) => (
-                <p key={i} style={{ margin: '0.2rem 0' }}>
+                <p key={i} className={styles.priceItem}>
                   <strong>{priceItem.label}:</strong> {priceItem.price}
                 </p>
               ))}

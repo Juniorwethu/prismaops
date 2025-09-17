@@ -1,6 +1,7 @@
 // src/pages/Sample.tsx
 import React, { useContext } from 'react';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
+import styles from './Sample.module.css';
 
 export const Sample: React.FC = () => {
   const { isSidebarCollapsed } = useContext(SidebarCollapseContext);
@@ -75,79 +76,25 @@ export const Sample: React.FC = () => {
     : portfolioSamples.filter(sample => sample.category === selectedCategory);
 
   return (
-    <section
-      style={{
-        minHeight: '100vh',
-        backgroundColor: '#111',
-        color: '#fff',
-        fontFamily: 'Segoe UI, sans-serif',
-        padding: isSidebarCollapsed ? '2rem 10vw' : '2rem 5vw',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '3rem',
-        overflowY: 'auto',
-        overflowX: 'hidden',
-      }}
-    >
+    <section className={`${styles.sampleSection} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
       {/* Header */}
-      <div style={{ textAlign: 'center', maxWidth: isSidebarCollapsed ? 1200 : 900, transition: 'max-width 0.3s ease' }}>
-        <h1 style={{ 
-          fontSize: isSidebarCollapsed ? '4rem' : '3rem', 
-          color: '#2764b4ff', 
-          marginBottom: '1rem',
-          lineHeight: 1.2,
-          transition: 'font-size 0.3s ease',
-        }}>
+      <div className={`${styles.header} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
+        <h1 className={`${styles.title} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
           Portfolio Samples
         </h1>
-        <p style={{ 
-          fontSize: isSidebarCollapsed ? '1.5rem' : '1.2rem', 
-          color: '#ddd', 
-          lineHeight: 1.5,
-          marginBottom: 0,
-          transition: 'font-size 0.3s ease',
-        }}>
+        <p className={`${styles.subtitle} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
           Explore our <strong>portfolio examples</strong> across different industries and styles. 
           Each project demonstrates our commitment to quality, creativity, and professional excellence.
         </p>
       </div>
 
       {/* Category Filter */}
-      <div style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '0.8rem',
-        justifyContent: 'center',
-        marginBottom: '1rem'
-      }}>
+      <div className={styles.categoryFilter}>
         {categories.map((category) => (
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            style={{
-              backgroundColor: selectedCategory === category ? '#2764b4ff' : 'transparent',
-              color: selectedCategory === category ? 'white' : '#59c2ffff',
-              border: `2px solid ${selectedCategory === category ? '#2764b4ff' : '#59c2ffff'}`,
-              padding: '0.5rem 1rem',
-              fontSize: '0.9rem',
-              borderRadius: 25,
-              cursor: 'pointer',
-              fontWeight: '500',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              if (selectedCategory !== category) {
-                (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#59c2ffff';
-                (e.currentTarget as HTMLButtonElement).style.color = '#0e0e0e';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (selectedCategory !== category) {
-                (e.currentTarget as HTMLButtonElement).style.backgroundColor = 'transparent';
-                (e.currentTarget as HTMLButtonElement).style.color = '#59c2ffff';
-              }
-            }}
+            className={`${styles.categoryButton} ${selectedCategory === category ? styles.selected : ''}`}
           >
             {category}
           </button>
@@ -155,127 +102,44 @@ export const Sample: React.FC = () => {
       </div>
 
       {/* Portfolio Grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
-        gap: '2.5rem',
-        width: '100%',
-        maxWidth: 1400,
-      }}>
+      <div className={styles.portfolioGrid}>
         {filteredSamples.map((sample, idx) => (
-          <div
-            key={idx}
-              style={{
-                backgroundColor: '#1e1e1e',
-                borderRadius: 16,
-                overflow: 'hidden',
-                boxShadow: '0 4px 15px rgba(0, 238, 182, 0.18), 0 0 12px 2px #00eeb420',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.05)';
-                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 12px 30px #00eeb4aa, 0 0 24px 8px #00eeb4aa';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)';
-                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 15px rgba(0, 238, 182, 0.18), 0 0 12px 2px #00eeb420';
-              }}
-          >
+          <div key={idx} className={styles.sampleCard}>
             {/* Image Placeholder */}
-            <div style={{
-              height: 250,
-              backgroundColor: '#2a2a2a',
-              backgroundImage: 'linear-gradient(45deg, #2a2a2a 25%, #333 25%, #333 50%, #2a2a2a 50%, #2a2a2a 75%, #333 75%)',
-              backgroundSize: '20px 20px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative'
-            }}>
-              <div style={{
-                backgroundColor: 'rgba(39, 100, 180, 0.1)',
-                padding: '1rem',
-                borderRadius: 8,
-                textAlign: 'center'
-              }}>
-                <span style={{ fontSize: '2rem', marginBottom: '0.5rem', display: 'block' }}>🖼️</span>
-                <span style={{ color: '#59c2ffff', fontSize: '0.9rem', fontWeight: '500' }}>
+            <div className={styles.imagePlaceholder}>
+              <div className={styles.imageContent}>
+                <span className={styles.imageIcon}>🖼️</span>
+                <span className={styles.imageTitle}>
                   {sample.title}
                 </span>
               </div>
-              <div style={{
-                position: 'absolute',
-                top: '1rem',
-                right: '1rem',
-                backgroundColor: '#2764b4ff',
-                color: 'white',
-                padding: '0.3rem 0.8rem',
-                borderRadius: 15,
-                fontSize: '0.8rem',
-                fontWeight: '500'
-              }}>
+              <div className={styles.typeBadge}>
                 {sample.type}
               </div>
             </div>
 
             {/* Content */}
-            <div style={{ padding: '1.5rem' }}>
-              <div style={{ marginBottom: '1rem' }}>
-                <div style={{ 
-                  color: '#59c2ffff', 
-                  fontSize: '0.85rem', 
-                  fontWeight: '500',
-                  marginBottom: '0.5rem'
-                }}>
+            <div className={styles.cardContent}>
+              <div className={styles.cardHeader}>
+                <div className={styles.cardCategory}>
                   {sample.category}
                 </div>
-                <h3 style={{ 
-                  color: '#fff', 
-                  fontSize: '1.3rem', 
-                  margin: 0,
-                  marginBottom: '0.8rem',
-                  lineHeight: 1.3
-                }}>
+                <h3 className={styles.cardTitle}>
                   {sample.title}
                 </h3>
-                <p style={{ 
-                  color: '#ccc', 
-                  fontSize: '0.95rem', 
-                  lineHeight: 1.5,
-                  margin: 0,
-                  marginBottom: '1rem'
-                }}>
+                <p className={styles.cardDescription}>
                   {sample.description}
                 </p>
               </div>
 
               {/* Features */}
-              <div style={{ marginBottom: '1rem' }}>
-                <h4 style={{ 
-                  color: '#fff', 
-                  fontSize: '0.9rem', 
-                  marginBottom: '0.5rem',
-                  margin: 0
-                }}>
+              <div className={styles.features}>
+                <h4 className={styles.listTitle}>
                   Key Features:
                 </h4>
-                <div style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '0.5rem'
-                }}>
+                <div className={styles.tags}>
                   {sample.features.map((feature, featureIdx) => (
-                    <span
-                      key={featureIdx}
-                      style={{
-                        backgroundColor: '#333',
-                        color: '#ddd',
-                        padding: '0.2rem 0.6rem',
-                        borderRadius: 12,
-                        fontSize: '0.8rem'
-                      }}
-                    >
+                    <span key={featureIdx} className={styles.featureTag}>
                       {feature}
                     </span>
                   ))}
@@ -283,32 +147,13 @@ export const Sample: React.FC = () => {
               </div>
 
               {/* Technologies */}
-              <div style={{ marginBottom: '1.5rem' }}>
-                <h4 style={{ 
-                  color: '#fff', 
-                  fontSize: '0.9rem', 
-                  marginBottom: '0.5rem',
-                  margin: 0
-                }}>
+              <div className={styles.technologies}>
+                <h4 className={styles.listTitle}>
                   Technologies:
                 </h4>
-                <div style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '0.5rem'
-                }}>
+                <div className={styles.tags}>
                   {sample.technologies.map((tech, techIdx) => (
-                    <span
-                      key={techIdx}
-                      style={{
-                        backgroundColor: '#2764b4ff',
-                        color: 'white',
-                        padding: '0.2rem 0.6rem',
-                        borderRadius: 12,
-                        fontSize: '0.8rem',
-                        fontWeight: '500'
-                      }}
-                    >
+                    <span key={techIdx} className={styles.techTag}>
                       {tech}
                     </span>
                   ))}
@@ -316,28 +161,7 @@ export const Sample: React.FC = () => {
               </div>
 
               {/* Action Button */}
-              <button
-                style={{
-                  backgroundColor: '#59c2ffff',
-                  color: '#0e0e0e',
-                  border: 'none',
-                  padding: '0.8rem 1.5rem',
-                  fontSize: '0.95rem',
-                  borderRadius: 8,
-                  cursor: 'pointer',
-                  fontWeight: '600',
-                  transition: 'all 0.2s ease',
-                  width: '100%'
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#4aa3d9';
-                  (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.02)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#59c2ffff';
-                  (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)';
-                }}
-              >
+              <button className={styles.actionButton}>
                 View Live Demo
               </button>
             </div>
@@ -346,77 +170,19 @@ export const Sample: React.FC = () => {
       </div>
 
       {/* CTA Section */}
-      <div style={{
-        backgroundColor: '#1e1e1e',
-        padding: '2.5rem',
-        borderRadius: 16,
-        maxWidth: 900,
-        width: '100%',
-        textAlign: 'center',
-        boxShadow: '0 4px 15px rgba(39, 100, 180, 0.2)',
-        marginTop: '2rem'
-      }}>
-        <h3 style={{ 
-          color: '#59c2ffff', 
-          fontSize: '1.8rem', 
-          marginBottom: '1rem' 
-        }}>
+      <div className={styles.ctaSection}>
+        <h3 className={styles.ctaTitle}>
           🎯 Inspired by What You See?
         </h3>
-        <p style={{ 
-          color: '#ddd', 
-          fontSize: '1.1rem', 
-          lineHeight: 1.5,
-          marginBottom: '2rem'
-        }}>
+        <p className={styles.ctaText}>
           These are just a few examples of what we can create for you. Every portfolio is custom-designed 
           to match your unique style, goals, and industry requirements.
         </p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button
-            style={{
-              backgroundColor: '#2764b4ff',
-              color: 'white',
-              border: 'none',
-              padding: '1rem 2rem',
-              fontSize: '1.1rem',
-              borderRadius: 8,
-              cursor: 'pointer',
-              fontWeight: '600',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#1e4d87';
-              (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.05)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#2764b4ff';
-              (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)';
-            }}
-          >
+        <div className={styles.ctaButtons}>
+          <button className={styles.primaryButton}>
             Start Your Portfolio
           </button>
-          <button
-            style={{
-              backgroundColor: 'transparent',
-              color: '#59c2ffff',
-              border: '2px solid #59c2ffff',
-              padding: '1rem 2rem',
-              fontSize: '1.1rem',
-              borderRadius: 8,
-              cursor: 'pointer',
-              fontWeight: '600',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#59c2ffff';
-              (e.currentTarget as HTMLButtonElement).style.color = '#0e0e0e';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = 'transparent';
-              (e.currentTarget as HTMLButtonElement).style.color = '#59c2ffff';
-            }}
-          >
+          <button className={styles.secondaryButton}>
             Get Custom Quote
           </button>
         </div>

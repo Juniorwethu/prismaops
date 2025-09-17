@@ -1,9 +1,9 @@
 // src/pages/GithubTraining.tsx
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
+import styles from './GithubTraining.module.css';
 
 export const GithubTraining: React.FC = () => {
-  const colors = { background: '#252222ff', text: '#fff', textSecondary: '#ccc', primary: '#2764b4ff', accent: '#2764b4ff', cardBackground: '#181212ff', shadow: 'rgba(225, 73, 73, 0.5)' };
   const { isSidebarCollapsed } = useContext(SidebarCollapseContext);
   const trainingModules = [
     {
@@ -98,76 +98,37 @@ export const GithubTraining: React.FC = () => {
     }
   ];
 
+  const getLevelClass = (level: string) => {
+    if (level === 'Beginner') return styles.levelBeginner;
+    if (level === 'Intermediate') return styles.levelIntermediate;
+    if (level === 'Advanced') return styles.levelAdvanced;
+    return '';
+  };
+
   return (
-    <section
-        style={{
-          minHeight: '100vh',
-          backgroundColor: colors.background,
-          color: colors.text,
-          fontFamily: 'Segoe UI, sans-serif',
-          padding: isSidebarCollapsed ? '2rem 10vw' : '2rem 5vw',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '3rem',
-          overflowY: 'auto',
-          overflowX: 'hidden',
-        }}
-      >
+    <section className={`${styles.githubTrainingSection} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
       {/* Header */}
-      <div style={{ textAlign: 'center', maxWidth: isSidebarCollapsed ? 1400 : 1000, transition: 'max-width 0.3s ease' }}>
-        <h1 style={{ 
-          fontSize: isSidebarCollapsed ? '4rem' : '3rem', 
-          color: colors.primary, 
-          marginBottom: '1rem',
-          lineHeight: 1.2,
-          transition: 'font-size 0.3s ease',
-        }}>
+      <div className={`${styles.header} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
+        <h1 className={`${styles.title} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
           GitHub Training & Student Support
         </h1>
-        <p style={{ 
-          fontSize: isSidebarCollapsed ? '1.5rem' : '1.2rem', 
-          color: colors.textSecondary, 
-          lineHeight: 1.5,
-          marginBottom: '1rem',
-          transition: 'font-size 0.3s ease',
-        }}>
+        <p className={`${styles.subtitle} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
           Master <strong>version control</strong> with comprehensive GitHub training and get expert guidance 
           for your <strong>student tech projects</strong>. From beginner basics to advanced workflows, 
           we'll help you become a confident developer.
         </p>
-        <div style={{
-          backgroundColor: colors.cardBackground,
-          padding: '1.5rem',
-          borderRadius: 12,
-          marginTop: '1rem',
-          border: `2px solid ${colors.primary}`
-        }}>
-          <h3 style={{ color: colors.accent, fontSize: '1.1rem', margin: 0, marginBottom: '0.8rem' }}>
+        <div className={styles.packagesInfo}>
+          <h3 className={styles.packagesTitle}>
             📋 Training Packages:
           </h3>
-          <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <div style={{ textAlign: 'center' }}>
-              <span style={{ 
-                backgroundColor: '#28a745', 
-                color: 'white', 
-                padding: '0.3rem 1rem', 
-                borderRadius: 15, 
-                fontSize: '0.9rem',
-                fontWeight: '600'
-              }}>
+          <div className={styles.packagesContainer}>
+            <div className={styles.package}>
+              <span className={styles.starterPackage}>
                 Starter (1 session): R600
               </span>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <span style={{ 
-                backgroundColor: '#2764b4ff', 
-                color: 'white', 
-                padding: '0.3rem 1rem', 
-                borderRadius: 15, 
-                fontSize: '0.9rem',
-                fontWeight: '600'
-              }}>
+            <div className={styles.package}>
+              <span className={styles.proPackage}>
                 Pro (3 sessions): R1,500
               </span>
             </div>
@@ -176,67 +137,23 @@ export const GithubTraining: React.FC = () => {
       </div>
 
       {/* GitHub Training Section */}
-      <div style={{ width: '100%', maxWidth: 1400 }}>
-        <h2 style={{ 
-          fontSize: '2.2rem', 
-          color: colors.accent, 
-          textAlign: 'center',
-          marginBottom: '2rem' 
-        }}>
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>
           📦 GitHub Training Modules
         </h2>
         
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
-          gap: '2rem',
-          marginBottom: '4rem'
-        }}>
+        <div className={styles.grid}>
           {trainingModules.map((module, idx) => (
-            <div
-              key={idx}
-              style={{
-                backgroundColor: colors.cardBackground,
-                padding: '2rem',
-                borderRadius: 16,
-                boxShadow: `0 4px 15px rgba(218, 17, 17, 0.18), 0 0 12px 2px #da111120`,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.5rem',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                cursor: 'default',
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.05)';
-                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 25px #da1111aa, 0 0 24px 8px #da1111aa';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)';
-                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 15px rgba(218, 17, 17, 0.18), 0 0 12px 2px #da111120';
-              }}
-            >
+            <div key={idx} className={styles.card}>
               {/* Module Header */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <span style={{ fontSize: '2.5rem' }}>{module.icon}</span>
+              <div className={styles.cardHeader}>
+                <div className={styles.cardHeaderContent}>
+                  <span className={styles.cardIcon}>{module.icon}</span>
                   <div>
-                    <h3 style={{ 
-                      color: colors.accent, 
-                      fontSize: '1.3rem', 
-                      margin: 0,
-                      marginBottom: '0.3rem'
-                    }}>
+                    <h3 className={styles.cardTitle}>
                       {module.title}
                     </h3>
-                    <span style={{
-                      backgroundColor: module.level === 'Beginner' ? '#28a745' : 
-                                     module.level === 'Intermediate' ? '#ffc107' : '#dc3545',
-                      color: module.level === 'Intermediate' ? '#000' : 'white',
-                      padding: '0.2rem 0.8rem',
-                      borderRadius: 12,
-                      fontSize: '0.8rem',
-                      fontWeight: '500'
-                    }}>
+                    <span className={`${styles.levelBadge} ${getLevelClass(module.level)}`}>
                       {module.level}
                     </span>
                   </div>
@@ -244,34 +161,18 @@ export const GithubTraining: React.FC = () => {
               </div>
 
               {/* Description */}
-              <p style={{ 
-                color: colors.textSecondary, 
-                fontSize: '1rem', 
-                lineHeight: 1.6,
-                margin: 0 
-              }}>
+              <p className={styles.cardDescription}>
                 {module.description}
               </p>
 
               {/* Topics */}
               <div>
-                <h4 style={{ 
-                  color: colors.text, 
-                  fontSize: '1rem', 
-                  marginBottom: '0.8rem',
-                  margin: 0 
-                }}>
+                <h4 className={styles.listTitle}>
                   What You'll Learn:
                 </h4>
-                <ul style={{ 
-                  color: '#ccc', 
-                  fontSize: '0.9rem',
-                  lineHeight: 1.5,
-                  paddingLeft: '1.2rem',
-                  margin: 0
-                }}>
+                <ul className={styles.list}>
                   {module.topics.map((topic, topicIdx) => (
-                    <li key={topicIdx} style={{ marginBottom: '0.3rem' }}>
+                    <li key={topicIdx} className={styles.listItem}>
                       {topic}
                     </li>
                   ))}
@@ -279,27 +180,12 @@ export const GithubTraining: React.FC = () => {
               </div>
 
               {/* Pricing & Duration */}
-              <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginTop: 'auto',
-                paddingTop: '1rem',
-                borderTop: '1px solid #333'
-              }}>
+              <div className={styles.cardFooter}>
                 <div>
-                  <div style={{ 
-                    color: colors.accent, 
-                    fontSize: '1.4rem', 
-                    fontWeight: '600',
-                    marginBottom: '0.2rem'
-                  }}>
+                  <div className={styles.price}>
                     {module.price}
                   </div>
-                  <div style={{ 
-                    color: colors.textSecondary, 
-                    fontSize: '0.9rem' 
-                  }}>
+                  <div className={styles.duration}>
                     {module.duration}
                   </div>
                 </div>
@@ -307,25 +193,7 @@ export const GithubTraining: React.FC = () => {
                   onClick={() => {
                     window.location.href = "mailto:Admin@Prisma.Ops.com?subject=GitHub Training Booking Request&body=Hi PrismaOps Team,%0D%0A%0D%0AI'd like to book a GitHub training session.%0D%0A%0D%0APlease contact me with more details.%0D%0A%0D%0AThank you!";
                   }}
-                  style={{
-                    backgroundColor: '#2764b4ff',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.8rem 1.5rem',
-                    fontSize: '0.95rem',
-                    borderRadius: 8,
-                    cursor: 'pointer',
-                    fontWeight: '600',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#1e4d87';
-                    (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.05)';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#2764b4ff';
-                    (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)';
-                  }}
+                  className={styles.actionButton}
                 >
                   Book Training
                 </button>
@@ -336,87 +204,35 @@ export const GithubTraining: React.FC = () => {
       </div>
 
       {/* Student Support Section */}
-      <div style={{ width: '100%', maxWidth: 1400 }}>
-        <h2 style={{ 
-          fontSize: '2.2rem', 
-          color: '#59c2ffff', 
-          textAlign: 'center',
-          marginBottom: '2rem' 
-        }}>
+      <div className={styles.section}>
+        <h2 className={`${styles.sectionTitle} ${styles.studentSupportTitle}`}>
           🎓 Student Tech Project Support
         </h2>
         
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-          gap: '2rem',
-          marginBottom: '4rem'
-        }}>
+        <div className={styles.grid}>
           {studentServices.map((service, idx) => (
-            <div
-              key={idx}
-              style={{
-                backgroundColor: '#1e1e1e',
-                padding: '2rem',
-                borderRadius: 16,
-                boxShadow: '0 4px 15px rgba(218, 17, 17, 0.18), 0 0 12px 2px #da111120',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.5rem',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                cursor: 'default',
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.05)';
-                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 25px #da1111aa, 0 0 24px 8px #da1111aa';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)';
-                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 15px rgba(218, 17, 17, 0.18), 0 0 12px 2px #da111120';
-              }}
-            >
+            <div key={idx} className={`${styles.card} ${styles.studentCard}`}>
               {/* Service Header */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <span style={{ fontSize: '2.5rem' }}>{service.icon}</span>
-                <h3 style={{ 
-                  color: '#59c2ffff', 
-                  fontSize: '1.3rem', 
-                  margin: 0,
-                  lineHeight: 1.3
-                }}>
+              <div className={styles.cardHeaderContent}>
+                <span className={styles.cardIcon}>{service.icon}</span>
+                <h3 className={`${styles.cardTitle} ${styles.studentCardTitle}`}>
                   {service.title}
                 </h3>
               </div>
 
               {/* Description */}
-              <p style={{ 
-                color: '#ddd', 
-                fontSize: '1rem', 
-                lineHeight: 1.6,
-                margin: 0 
-              }}>
+              <p className={styles.cardDescription}>
                 {service.description}
               </p>
 
               {/* Services */}
               <div>
-                <h4 style={{ 
-                  color: '#fff', 
-                  fontSize: '1rem', 
-                  marginBottom: '0.8rem',
-                  margin: 0 
-                }}>
+                <h4 className={styles.listTitle}>
                   Services Included:
                 </h4>
-                <ul style={{ 
-                  color: '#ccc', 
-                  fontSize: '0.9rem',
-                  lineHeight: 1.5,
-                  paddingLeft: '1.2rem',
-                  margin: 0
-                }}>
+                <ul className={styles.list}>
                   {service.services.map((item, itemIdx) => (
-                    <li key={itemIdx} style={{ marginBottom: '0.3rem' }}>
+                    <li key={itemIdx} className={styles.listItem}>
                       {item}
                     </li>
                   ))}
@@ -424,44 +240,15 @@ export const GithubTraining: React.FC = () => {
               </div>
 
               {/* Pricing */}
-              <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginTop: 'auto',
-                paddingTop: '1rem',
-                borderTop: '1px solid #333'
-              }}>
-                <div style={{ 
-                  color: '#59c2ffff', 
-                  fontSize: '1.3rem', 
-                  fontWeight: '600'
-                }}>
+              <div className={styles.cardFooter}>
+                <div className={`${styles.price} ${styles.studentPrice}`}>
                   {service.price}
                 </div>
                 <button
                   onClick={() => {
                     window.location.href = "mailto:Admin@Prisma.Ops.com?subject=GitHub Training Support Request&body=Hi PrismaOps Team,%0D%0A%0D%0AI need support for the GitHub training session.%0D%0A%0D%0APlease contact me with more details.%0D%0A%0D%0AThank you!";
                   }}
-                  style={{
-                    backgroundColor: '#2764b4ff',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.8rem 1.5rem',
-                    fontSize: '0.95rem',
-                    borderRadius: 8,
-                    cursor: 'pointer',
-                    fontWeight: '600',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#1e4d87';
-                    (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.05)';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#2764b4ff';
-                    (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)';
-                  }}
+                  className={styles.actionButton}
                 >
                   Get Support
                 </button>
@@ -472,143 +259,47 @@ export const GithubTraining: React.FC = () => {
       </div>
 
       {/* Benefits Section */}
-      <div style={{
-        backgroundColor: '#1e1e1e',
-        padding: '2.5rem',
-        borderRadius: 16,
-        maxWidth: 1000,
-        width: '100%',
-        textAlign: 'center',
-        boxShadow: '0 4px 15px rgba(0, 238, 182, 0.2)',
-      }}>
-        <h2 style={{ 
-          color: '#59c2ffff', 
-          fontSize: '2rem', 
-          marginBottom: '2rem' 
-        }}>
+      <div className={styles.benefitsSection}>
+        <h2 className={styles.benefitsTitle}>
           Why Choose PrismaOps for GitHub Training?
         </h2>
         
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '2rem',
-          marginTop: '2rem'
-        }}>
+        <div className={styles.benefitsGrid}>
           {[
-            {
-              icon: "🎯",
-              title: "Hands-On Learning",
-              desc: "Learn by doing with real projects and practical exercises"
-            },
-            {
-              icon: "👨‍💻",
-              title: "Expert Instructors",
-              desc: "Learn from experienced developers with industry knowledge"
-            },
-            {
-              icon: "📚",
-              title: "Comprehensive Materials",
-              desc: "Access to guides, cheat sheets, and ongoing resources"
-            },
-            {
-              icon: "🚀",
-              title: "Career Ready",
-              desc: "Build skills that employers actually look for"
-            },
-            {
-              icon: "🤝",
-              title: "Ongoing Support",
-              desc: "Get help even after your training is complete"
-            },
-            {
-              icon: "💰",
-              title: "Affordable Pricing",
-              desc: "Student-friendly rates with flexible payment options"
-            }
+            { icon: "🎯", title: "Hands-On Learning", desc: "Learn by doing with real projects and practical exercises" },
+            { icon: "👨‍💻", title: "Expert Instructors", desc: "Learn from experienced developers with industry knowledge" },
+            { icon: "📚", title: "Comprehensive Materials", desc: "Access to guides, cheat sheets, and ongoing resources" },
+            { icon: "🚀", title: "Career Ready", desc: "Build skills that employers actually look for" },
+            { icon: "🤝", title: "Ongoing Support", desc: "Get help even after your training is complete" },
+            { icon: "💰", title: "Affordable Pricing", desc: "Student-friendly rates with flexible payment options" }
           ].map((benefit, idx) => (
-            <div key={idx} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.8rem' }}>
-                {benefit.icon}
-              </div>
-              <h3 style={{ 
-                color: '#fff', 
-                fontSize: '1.1rem', 
-                marginBottom: '0.5rem',
-                margin: 0 
-              }}>
-                {benefit.title}
-              </h3>
-              <p style={{ 
-                color: '#ccc', 
-                fontSize: '0.95rem',
-                margin: 0,
-                lineHeight: 1.4
-              }}>
-                {benefit.desc}
-              </p>
+            <div key={idx} className={styles.benefit}>
+              <div className={styles.benefitIcon}>{benefit.icon}</div>
+              <h3 className={styles.benefitTitle}>{benefit.title}</h3>
+              <p className={styles.benefitDesc}>{benefit.desc}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* WhatsApp CTA Section */}
-      <div style={{
-        backgroundColor: '#1e1e1e',
-        padding: '2.5rem',
-        borderRadius: 16,
-        maxWidth: 800,
-        width: '100%',
-        textAlign: 'center',
-        boxShadow: '0 4px 15px rgba(39, 100, 180, 0.2)',
-      }}>
-        <h3 style={{ 
-          color: '#59c2ffff', 
-          fontSize: '1.8rem', 
-          marginBottom: '1rem' 
-        }}>
+      <div className={styles.whatsappCta}>
+        <h3 className={styles.whatsappTitle}>
           💬 Ready to Start Learning?
         </h3>
-        <p style={{ 
-          color: '#ddd', 
-          fontSize: '1.1rem', 
-          lineHeight: 1.5,
-          marginBottom: '2rem'
-        }}>
+        <p className={styles.whatsappText}>
           Have questions about our training programs or need help with your project? 
           Let's chat on WhatsApp! We're here to help you succeed.
         </p>
         
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div className={styles.whatsappButtons}>
           <a
             href="https://wa.me/27877983991?text=Hi%20PrismaOps!%20I'm%20interested%20in%20GitHub%20training%20and%20would%20like%20to%20know%20more%20about%20your%20programs."
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              backgroundColor: '#25D366',
-              color: 'white',
-              border: 'none',
-              padding: '1rem 2rem',
-              fontSize: '1.1rem',
-              borderRadius: 8,
-              cursor: 'pointer',
-              fontWeight: '600',
-              transition: 'all 0.2s ease',
-              textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem'
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#20b358';
-              (e.currentTarget as HTMLAnchorElement).style.transform = 'scale(1.05)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#25D366';
-              (e.currentTarget as HTMLAnchorElement).style.transform = 'scale(1)';
-            }}
+            className={styles.whatsappButton}
           >
-            <span style={{ fontSize: '1.2rem' }}>📱</span>
+            <span>📱</span>
             Chat on WhatsApp
           </a>
           
@@ -616,37 +307,15 @@ export const GithubTraining: React.FC = () => {
             href="https://wa.me/27628576852?text=Hi%20PrismaOps!%20I'm%20a%20student%20and%20need%20help%20with%20my%20tech%20project.%20Can%20we%20discuss%20how%20you%20can%20assist%20me?"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              backgroundColor: 'transparent',
-              color: '#25D366',
-              border: '2px solid #25D366',
-              padding: '1rem 2rem',
-              fontSize: '1.1rem',
-              borderRadius: 8,
-              cursor: 'pointer',
-              fontWeight: '600',
-              transition: 'all 0.2s ease',
-              textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem'
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#25D366';
-              (e.currentTarget as HTMLAnchorElement).style.color = 'white';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
-              (e.currentTarget as HTMLAnchorElement).style.color = '#25D366';
-            }}
+            className={`${styles.whatsappButton} ${styles.whatsappSecondaryButton}`}
           >
-            <span style={{ fontSize: '1.2rem' }}>🎓</span>
+            <span>🎓</span>
             Student Support Chat
           </a>
         </div>
 
-        <div style={{ marginTop: '1.5rem', fontSize: '0.9rem', color: '#aaa' }}>
-          <p style={{ margin: 0 }}>
+        <div className={styles.contactInfo}>
+          <p>
             📞 <strong>Primary:</strong> 0787983991 | <strong>Alternative:</strong> 062 857 6852
           </p>
         </div>
