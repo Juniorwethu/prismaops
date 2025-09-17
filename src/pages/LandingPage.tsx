@@ -10,7 +10,6 @@ export const LandingPage: React.FC = () => {
     <section className={styles.landingSection}>
       {/* Logo and Intro */}
       <div className={`${styles.introContainer} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-        <img src="/logo.png" alt="PrismaOps Logo" className={`${styles.logo} ${isSidebarCollapsed ? styles.collapsed : ''}`} />
         <h1 className={`${styles.title} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
           Welcome to PrismaOps
         </h1>

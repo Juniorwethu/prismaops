@@ -1,28 +1,10 @@
 // src/pages/ContactUs.tsx
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './ContactUs.module.css';
 
 const ContactUs: React.FC = () => {
   const { isSidebarCollapsed } = useContext(SidebarCollapseContext);
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      alert(`Thank you for contacting PrismaOps, ${form.name}! We'll get back to you soon.`);
-      setForm({ name: '', email: '', message: '' });
-      setIsSubmitting(false);
-    }, 1000);
-  };
 
   return (
     <section className={`${styles.contactUsSection} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
@@ -76,60 +58,6 @@ const ContactUs: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Contact Form */}
-        <div className={styles.contactFormContainer}>
-          <h2 className={styles.sectionTitle}>
-            Send us a Message
-          </h2>
-
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.formGroup}>
-              <label>Name *</label>
-              <input
-                required
-                name="name"
-                type="text"
-                value={form.name}
-                onChange={handleChange}
-                className={styles.formInput}
-              />
-            </div>
-
-            <div className={styles.formGroup}>
-              <label>Email *</label>
-              <input
-                required
-                name="email"
-                type="email"
-                value={form.email}
-                onChange={handleChange}
-                className={styles.formInput}
-              />
-            </div>
-
-            <div className={styles.formGroup}>
-              <label>Message *</label>
-              <textarea
-                required
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                rows={5}
-                className={styles.formTextarea}
-                placeholder="Tell us about your project..."
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={styles.submitButton}
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
         </div>
       </div>
 
