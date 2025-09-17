@@ -294,7 +294,7 @@ export const GithubTraining: React.FC = () => {
         
         <div className={styles.whatsappButtons}>
           <a
-            href="https://wa.me/27877983991?text=Hi%20PrismaOps!%20I'm%20interested%20in%20GitHub%20training%20and%20would%20like%20to%20know%20more%20about%20your%20programs."
+            href="https://wa.me/27787983991?text=Hi%20PrismaOps!%20I'm%20interested%20in%20GitHub%20training%20and%20would%20like%20to%20know%20more%20about%20your%20programs."
             target="_blank"
             rel="noopener noreferrer"
             className={styles.whatsappButton}
@@ -304,7 +304,7 @@ export const GithubTraining: React.FC = () => {
           </a>
           
           <a
-            href="https://wa.me/27628576852?text=Hi%20PrismaOps!%20I'm%20a%20student%20and%20need%20help%20with%20my%20tech%20project.%20Can%20we%20discuss%20how%20you%20can%20assist%20me?"
+            href="https://wa.me/27787983991?text=Hi%20PrismaOps!%20I'm%20a%20student%20and%20need%20help%20with%20my%20tech%20project.%20Can%20we%20discuss%20how%20you%20can%20assist%20me?"
             target="_blank"
             rel="noopener noreferrer"
             className={`${styles.whatsappButton} ${styles.whatsappSecondaryButton}`}
@@ -316,7 +316,7 @@ export const GithubTraining: React.FC = () => {
 
         <div className={styles.contactInfo}>
           <p>
-            📞 <strong>Primary:</strong> 0787983991 | <strong>Alternative:</strong> 062 857 6852
+            📞 <strong>Primary:</strong> 0787983991
           </p>
         </div>
       </div>

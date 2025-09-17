@@ -77,7 +77,12 @@ export const Sample: React.FC = () => {
 
   return (
     <section className={`${styles.sampleSection} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-      {/* Header */}
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', flexDirection: 'column' }}>
+        <h1 style={{ fontSize: '3rem', fontWeight: 'bold' }}>Coming Soon</h1>
+        <p style={{ fontSize: '1.2rem', marginTop: '1rem' }}>We are working hard to bring you our portfolio samples. Stay tuned!</p>
+      </div>
+      {/*
+      // Header
       <div className={`${styles.header} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
         <h1 className={`${styles.title} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
           Portfolio Samples
@@ -88,7 +93,7 @@ export const Sample: React.FC = () => {
         </p>
       </div>
 
-      {/* Category Filter */}
+      // Category Filter
       <div className={styles.categoryFilter}>
         {categories.map((category) => (
           <button
@@ -101,11 +106,11 @@ export const Sample: React.FC = () => {
         ))}
       </div>
 
-      {/* Portfolio Grid */}
+      // Portfolio Grid
       <div className={styles.portfolioGrid}>
         {filteredSamples.map((sample, idx) => (
           <div key={idx} className={styles.sampleCard}>
-            {/* Image Placeholder */}
+            // Image Placeholder
             <div className={styles.imagePlaceholder}>
               <div className={styles.imageContent}>
                 <span className={styles.imageIcon}>🖼️</span>
@@ -118,7 +123,7 @@ export const Sample: React.FC = () => {
               </div>
             </div>
 
-            {/* Content */}
+            // Content
             <div className={styles.cardContent}>
               <div className={styles.cardHeader}>
                 <div className={styles.cardCategory}>
@@ -132,7 +137,7 @@ export const Sample: React.FC = () => {
                 </p>
               </div>
 
-              {/* Features */}
+              // Features
               <div className={styles.features}>
                 <h4 className={styles.listTitle}>
                   Key Features:
@@ -146,7 +151,7 @@ export const Sample: React.FC = () => {
                 </div>
               </div>
 
-              {/* Technologies */}
+              // Technologies
               <div className={styles.technologies}>
                 <h4 className={styles.listTitle}>
                   Technologies:
@@ -160,7 +165,7 @@ export const Sample: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action Button */}
+              // Action Button
               <button className={styles.actionButton}>
                 View Live Demo
               </button>
@@ -169,7 +174,7 @@ export const Sample: React.FC = () => {
         ))}
       </div>
 
-      {/* CTA Section */}
+      // CTA Section
       <div className={styles.ctaSection}>
         <h3 className={styles.ctaTitle}>
           🎯 Inspired by What You See?
@@ -187,6 +192,7 @@ export const Sample: React.FC = () => {
           </button>
         </div>
       </div>
+      */}
     </section>
   );
 };

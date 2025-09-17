@@ -76,7 +76,7 @@ export const GraphicDesign: React.FC = () => {
             </div>
             <div className={styles.contactDetail}>
               <span>📱</span>
-              <strong>Phone:</strong> <a href="tel:0787983991">0787983991</a> | <a href="tel:0628576852">062 857 6852</a>
+              <strong>Phone:</strong> <a href="tel:0787983991">0787983991</a>
             </div>
             <div className={styles.contactDetail}>
               <span>⏰</span>

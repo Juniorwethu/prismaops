@@ -1,10 +1,29 @@
 // src/pages/Portfolio.tsx
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './Portfolio.module.css';
 
 export const Portfolio: React.FC = () => {
   const { isSidebarCollapsed } = useContext(SidebarCollapseContext);
+  const [showContactOptions, setShowContactOptions] = useState(false);
+
+  useEffect(() => {
+    // For optimal performance and to avoid redundancy, this useEffect hook 
+    // should be moved to a single top-level component in your application, 
+    // such as App.tsx or a main layout component. This ensures the viewport 
+    // meta tag is set once for the entire application.
+    let viewportMeta = document.querySelector('meta[name="viewport"]');
+    if (!viewportMeta) {
+      viewportMeta = document.createElement('meta');
+      viewportMeta.setAttribute('name', 'viewport');
+      document.head.appendChild(viewportMeta);
+    }
+    viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+
+    return () => {
+      // Optional: cleanup if component unmounts, though usually you want this to persist.
+    };
+  }, []);
 
   const portfolioServices = [
     {
@@ -190,26 +209,24 @@ export const Portfolio: React.FC = () => {
           Contact us today for a free consultation!
         </p>
         <div className={styles.ctaButtons}>
-          <button
-            onClick={() => {
-              const phoneNumbers = [
-                { number: '0787983991', label: 'WhatsApp 1' },
-                { number: '0628576852', label: 'WhatsApp 2' },
-              ];
-              const userChoice = prompt(
-                `Choose a number to contact on WhatsApp:\n1. ${phoneNumbers[0].label}: ${phoneNumbers[0].number}\n2. ${phoneNumbers[1].label}: ${phoneNumbers[1].number}`
-              );
-              if (userChoice === '1' || userChoice === '2') {
-                const selectedNumber = phoneNumbers[parseInt(userChoice) - 1].number;
-                window.location.href = `https://wa.me/${selectedNumber}`;
-              } else {
-                alert('Invalid choice. Please try again.');
-              }
-            }}
-            className={styles.primaryButton}
-          >
-            Free Consultation
-          </button>
+          <div className={styles.consultationWrapper}>
+            <button
+              onClick={() => setShowContactOptions(!showContactOptions)}
+              className={styles.primaryButton}
+            >
+              Free Consultation
+            </button>
+            {showContactOptions && (
+              <div className={styles.contactOptions}>
+                <a href="https://wa.me/27787983991" target="_blank" rel="noopener noreferrer" className={styles.contactOptionButton}>
+                  WhatsApp 1
+                </a>
+                <a href="https://wa.me/27628576852" target="_blank" rel="noopener noreferrer" className={styles.contactOptionButton}>
+                  WhatsApp 2
+                </a>
+              </div>
+            )}
+          </div>
           <button
             onClick={() => {
               // Navigate to Sample page

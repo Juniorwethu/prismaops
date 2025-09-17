@@ -62,9 +62,6 @@ const ContactUs: React.FC = () => {
                   <a href="tel:0787983991" className={styles.infoLink}>
                     0787983991
                   </a>
-                  <a href="tel:0628576852" className={styles.infoLink}>
-                    062 857 6852
-                  </a>
                 </div>
               </div>
             </div>

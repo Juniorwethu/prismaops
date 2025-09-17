@@ -10,11 +10,6 @@ export const LandingPage: React.FC = () => {
     <section className={styles.landingSection}>
       {/* Logo and Intro */}
       <div className={`${styles.introContainer} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-        <img
-          src="/logo.jpg"
-          alt="PrismaOps Logo"
-          className={`${styles.logo} ${isSidebarCollapsed ? styles.collapsed : ''}`}
-        />
         <h1 className={`${styles.title} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
           Welcome to PrismaOps
         </h1>
@@ -57,10 +52,6 @@ export const LandingPage: React.FC = () => {
         ))}
       </div>
 
-      {/* CTA at bottom center if needed */}
-      <div className={styles.footerCta}>
-        🚀 Let’s build your digital future today.
-      </div>
     </section>
   );
 };

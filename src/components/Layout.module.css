@@ -1,0 +1,36 @@
+/* src/components/Layout.module.css */
+.layoutContainer {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.mainContent {
+  min-height: 100vh;
+  flex-grow: 1;
+  background-color: #111;
+  color: #fff;
+  transition: margin-left 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Desktop Styles */
+.mainContent.desktop {
+  margin-left: 200px;
+  width: calc(100vw - 200px);
+  padding: 0;
+}
+
+.mainContent.desktop.collapsed {
+  margin-left: 60px;
+  width: calc(100vw - 60px);
+}
+
+/* Mobile Styles */
+.mainContent.mobile {
+  margin-left: 0;
+  width: 100vw;
+  padding: 1rem;
+}
