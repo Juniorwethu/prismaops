@@ -2,10 +2,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './Portfolio.module.css';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 export const Portfolio: React.FC = () => {
   const { isSidebarCollapsed } = useContext(SidebarCollapseContext);
   const [showContactOptions, setShowContactOptions] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   useEffect(() => {
     // For optimal performance and to avoid redundancy, this useEffect hook 
@@ -88,14 +90,19 @@ export const Portfolio: React.FC = () => {
     }
   ];
 
+  const sectionClasses = [
+    styles.portfolioSection,
+    isSidebarCollapsed && !isMobile ? styles.collapsed : ''
+  ].join(' ');
+
   return (
-    <section className={`${styles.portfolioSection} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
+    <section className={sectionClasses}>
       {/* Header */}
-      <div className={`${styles.header} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-        <h1 className={`${styles.title} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>
           Portfolio Services
         </h1>
-        <p className={`${styles.subtitle} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
+        <p className={styles.subtitle}>
           Stand out from the crowd with a <strong>professional portfolio</strong> that showcases your talents and attracts opportunities. 
           From design to deployment, we handle everything so you can focus on what you do best.
         </p>

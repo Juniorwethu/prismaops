@@ -4,10 +4,11 @@
   transition: margin-left 0.3s ease-in-out;
   background-color: #f9fafb;
   color: #111827;
+  margin-left: 200px; /* Default margin for expanded sidebar */
 }
 
 .portfolioSection.collapsed {
-  margin-left: 0;
+  margin-left: 60px; /* Margin for collapsed sidebar */
 }
 
 /* Header */
@@ -263,6 +264,11 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  .portfolioSection,
+  .portfolioSection.collapsed {
+    margin-left: 0; /* No margin on mobile as sidebar is an overlay */
+  }
+
   .portfolioSection {
     padding: 1.5rem 1rem;
   }
