@@ -1,6 +1,7 @@
 import React from 'react';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import { Sidebar } from './Sidebar';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,6 +10,15 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const colors = { background: '#111', text: '#fff' };
   const [isSidebarCollapsed, setIsSidebarCollapsed] = React.useState(false);
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  React.useEffect(() => {
+    if (isMobile) {
+      setIsSidebarCollapsed(true);
+    } else {
+      setIsSidebarCollapsed(false);
+    }
+  }, [isMobile]);
 
   // Prevent horizontal scroll on all pages
   React.useEffect(() => {
@@ -26,7 +36,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Sidebar isCollapsed={isSidebarCollapsed} setIsCollapsed={setIsSidebarCollapsed} />
         <main
           style={{
-            marginLeft: isSidebarCollapsed ? '60px' : '200px',
+            marginLeft: isSidebarCollapsed && !isMobile ? '60px' : isMobile ? '0' : '200px',
             minHeight: '100vh',
             flexGrow: 1,
             backgroundColor: colors.background,
@@ -34,7 +44,8 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             transition: 'margin-left 0.3s ease, background-color 0.3s ease, color 0.3s ease',
             overflowY: 'auto',
             overflowX: 'hidden',
-            width: 'calc(100vw - ' + (isSidebarCollapsed ? '60px' : '200px') + ')',
+            width: `calc(100vw - ${isSidebarCollapsed && !isMobile ? '60px' : isMobile ? '0' : '200px'})`,
+            padding: isMobile ? '1rem' : '0',
           }}
         >
           {children}
