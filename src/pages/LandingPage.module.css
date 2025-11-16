@@ -1,177 +1,177 @@
-.landingSection {
-  display: flex;
-  height: 100vh;
-  width: 100%;
+.landingPage {
+  min-height: 100vh;
   background-color: #111;
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
-  padding: 0 5vw;
-  box-sizing: border-box;
-  justify-content: space-around;
-  align-items: center;
-  gap: 3rem;
-  flex-wrap: wrap;
+  padding: 2rem 5vw;
   overflow-y: auto;
-  overflow-x: hidden;
+  transition: padding 0.3s ease;
 }
 
-.introContainer {
-  flex: 1 1 300px;
-  max-width: 450px;
+.landingPage.collapsed {
+  padding: 2rem 10vw;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  margin-bottom: 4rem;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.heroSubtitle {
+  font-size: 1.3rem;
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.ctaButton {
+  background-color: #2764b4ff;
+  color: #fff;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ctaButton:hover {
+  background-color: #0056d3;
+  transform: translateY(-2px);
+}
+
+/* Main Content */
+.mainContent {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  min-width: 280px;
-  transition: all 0.3s ease;
-}
-
-.introContainer.collapsed {
-  flex: 2 1 600px;
-  max-width: 700px;
+  gap: 5rem;
   align-items: center;
 }
 
-.logo {
-  width: 260px;
-  height: auto;
-  object-fit: contain;
-  margin-bottom: 1rem;
-  filter: none;
-  transform: rotate(-0.5deg);
-  transition: width 0.3s ease;
+.servicesSection {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
 }
 
-.logo.collapsed {
-  width: 400px;
-}
-
-.title {
-  font-size: 2.8rem;
+.sectionTitle {
+  font-size: 2.5rem;
   color: #2764b4ff;
-  line-height: 1.1;
-  margin: 0;
-  transition: font-size 0.3s ease;
+  margin-bottom: 3rem;
 }
 
-.title.collapsed {
-  font-size: 3.5rem;
+/* Vertical Cards */
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
 }
 
-.subtitle {
+.serviceCard {
+  background-color: #1e1e1e;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(39, 100, 180, 0.3);
+}
+
+.cardIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.cardLink {
+  color: #2764b4ff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+/* Final CTA */
+.finalCta {
+  text-align: center;
+  background-color: #1e1e1e;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  color: #2764b4ff;
+  margin-bottom: 1rem;
+}
+
+.ctaText {
   font-size: 1.1rem;
-  line-height: 1.5;
   color: #ccc;
   margin-bottom: 2rem;
 }
 
-.featureCardsContainer {
-  flex: 2 1 600px;
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  min-width: 320px;
-  max-width: 900px;
-}
-
-.featureCard {
-  background-color: #1e1e1e;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5), 0 0 12px 2px #2764b420;
-  padding: 1.5rem 2rem;
-  border-radius: 16px;
-  flex: 1 1 280px;
-  box-sizing: border-box;
-  color: #ccc;
-  min-width: 280px;
-  max-width: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: default;
-}
-
-.featureCard:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 0 24px 8px #2764b4aa;
-}
-
-.cardTitle {
-  margin-bottom: 0.7rem;
-  font-size: 1.25rem;
-  color: #2764b4ff;
-}
-
-.cardDesc {
-  font-size: 0.95rem;
-  color: #ccc;
-  margin: 0;
-}
-
-.footerCta {
-  position: fixed;
-  bottom: 30px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: #bbb;
-  font-weight: 600;
-  font-size: 1.1rem;
-  user-select: none;
-}
-
-/* Responsive Styles */
+/* Responsive */
 @media (max-width: 768px) {
-  .landingSection {
-    padding: 0 2rem;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+  .heroTitle {
+    font-size: 2.5rem;
   }
-
-  .introContainer,
-  .introContainer.collapsed {
-    align-items: center;
-    text-align: center;
+  .heroSubtitle {
+    font-size: 1.1rem;
   }
-
-  .logo,
-  .logo.collapsed {
-    width: 200px;
-  }
-
-  .title,
-  .title.collapsed {
-    font-size: 2.2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .featureCardsContainer {
-    /* max-width: 100%; */
-  }
-
-  .footerCta {
-    position: static;
-    margin-top: 2rem;
+  .sectionTitle, .ctaTitle {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .title,
-  .title.collapsed {
-    font-size: 1.8rem;
+  .landingPage, .landingPage.collapsed {
+    padding: 1rem;
   }
-
-  .subtitle {
-    font-size: 0.9rem;
+  .heroTitle {
+    font-size: 2rem;
   }
-
-  .featureCard {
-    padding: 1rem 1.5rem;
+  .hero {
+    padding: 2rem 1rem;
   }
 }
 

@@ -1,57 +1,70 @@
 // src/pages/LandingPage.tsx
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './LandingPage.module.css';
+
+const services = [
+  {
+    icon: '💻',
+    title: 'Web & UI Design',
+    description: 'Stunning, modern websites and UI/UX designs that are responsive and user-friendly.',
+    link: '/web-ui-design',
+  },
+  {
+    icon: '🎨',
+    title: 'Graphic Design',
+    description: 'Creative graphic design for branding, marketing materials, and digital content.',
+    link: '/graphic-design',
+  },
+  {
+    icon: '💡',
+    title: 'GitHub Training',
+    description: 'Expert-led training to master Git and GitHub for seamless team collaboration.',
+    link: '/github-training',
+  },
+];
 
 export const LandingPage: React.FC = () => {
   const { isSidebarCollapsed } = useContext(SidebarCollapseContext);
 
   return (
-    <section className={styles.landingSection}>
-      {/* Logo and Intro */}
-      <div className={`${styles.introContainer} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-        <h1 className={`${styles.title} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-          Welcome to PrismaOps
-        </h1>
-        <p className={styles.subtitle}>
-          Empowering <strong>creators, students, and freelancers</strong> with exceptional tech
-          services.
+    <div className={`${styles.landingPage} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
+      <header className={styles.hero}>
+        <h1 className={styles.heroTitle}>Build, Design, and Collaborate with PrismaOps</h1>
+        <p className={styles.heroSubtitle}>
+          Your one-stop solution for web development, stunning design, and expert GitHub training.
         </p>
-      </div>
+        <Link to="/services" className={styles.ctaButton}>
+          Explore Our Services
+        </Link>
+      </header>
 
-      {/* Feature Cards */}
-      <div className={styles.featureCardsContainer}>
-        {[
-          {
-            title: '🌐 Web & UI Design',
-            desc: 'Modern, responsive websites and stunning interfaces.',
-          },
-          {
-            title: '🎓 Student Projects',
-            desc: 'Guidance and tools for your tech assignments and portfolios.',
-          },
-          {
-            title: '📦 GitHub Training',
-            desc: 'Master version control and code collaboration.',
-          },
-          {
-            title: '🎨 Graphic Design',
-            desc: 'Creative branding and social media content design.',
-          },
-          {
-            title: '📄 Proposal Writing',
-            desc: 'Professional proposals and documentation tailored to your needs.',
-          },
-        ].map((card, idx) => (
-          <div key={idx} className={styles.featureCard}>
-            <h3 className={styles.cardTitle}>
-              {card.title}
-            </h3>
-            <p className={styles.cardDesc}>{card.desc}</p>
+      <main className={styles.mainContent}>
+        <section className={styles.servicesSection}>
+          <h2 className={styles.sectionTitle}>What We Offer</h2>
+          <div className={styles.cardsContainer}>
+            {services.map((service) => (
+              <div key={service.title} className={styles.serviceCard}>
+                <div className={styles.cardIcon}>{service.icon}</div>
+                <h3 className={styles.cardTitle}>{service.title}</h3>
+                <p className={styles.cardDescription}>{service.description}</p>
+                <Link to={service.link} className={styles.cardLink}>
+                  Learn More &rarr;
+                </Link>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </section>
 
-    </section>
+        <section className={styles.finalCta}>
+          <h2 className={styles.ctaTitle}>Ready to bring your ideas to life?</h2>
+          <p className={styles.ctaText}>Let's build something amazing together.</p>
+          <Link to="/contact" className={styles.ctaButton}>
+            Get In Touch
+          </Link>
+        </section>
+      </main>
+    </div>
   );
 };

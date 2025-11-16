@@ -7,7 +7,7 @@ import { LandingPage } from './pages/LandingPage';
 import { Services } from './pages/Services';
 import { Portfolio } from './pages/Portfolio';
 import { GithubTraining } from './pages/GithubTraining';
-import  ContactUs  from './pages/ContactUs';
+import ContactUs from './pages/ContactUs';
 import { Sample } from './pages/Sample';
 import { WebUIDesign } from './pages/WebUIDesign';
 import { GraphicDesign } from './pages/GraphicDesign';
