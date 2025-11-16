@@ -1,8 +1,8 @@
 /* src/pages/GithubTraining.module.css */
-.githubTrainingSection {
+.pageSection {
   min-height: 100vh;
-  background-color: #252222ff;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   font-family: 'Segoe UI', sans-serif;
   padding: 2rem 5vw;
   display: flex;
@@ -13,18 +13,18 @@
   overflow-x: hidden;
 }
 
-.githubTrainingSection.collapsed {
+.pageSection.collapsed {
   padding: 2rem 10vw;
 }
 
 .header {
   text-align: center;
-  max-width: 1000px;
+  max-width: 800px;
   transition: max-width 0.3s ease;
 }
 
 .header.collapsed {
-  max-width: 1400px;
+  max-width: 1200px;
 }
 
 .title {
@@ -41,9 +41,9 @@
 
 .subtitle {
   font-size: 1.2rem;
-  color: #ccc;
+  color: #666;
   line-height: 1.5;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   transition: font-size 0.3s ease;
 }
 
@@ -51,324 +51,263 @@
   font-size: 1.5rem;
 }
 
-.packagesInfo {
-  background-color: #181212ff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-top: 1rem;
-  border: 2px solid #2764b4ff;
-}
-
-.packagesTitle {
-  color: #2764b4ff;
-  font-size: 1.1rem;
-  margin: 0 0 0.8rem;
-}
-
-.packagesContainer {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.package {
-  text-align: center;
-}
-
-.package span {
-  color: white;
-  padding: 0.3rem 1rem;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.starterPackage {
-  background-color: #28a745;
-}
-
-.proPackage {
-  background-color: #2764b4ff;
-}
-
-.section {
+.packagesCard {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(39, 100, 180, 0.1);
+  border: 1px solid #e9ecef;
   width: 100%;
-  max-width: 1400px;
-}
-
-.sectionTitle {
-  font-size: 2.2rem;
-  color: #2764b4ff;
+  max-width: 600px;
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.studentSupportTitle {
-  color: #59c2ffff;
+.packagesTitle {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-.card {
-  background-color: #181212ff;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(218, 17, 17, 0.18), 0 0 12px 2px #da111120;
+.packagesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px #da1111aa, 0 0 24px 8px #da1111aa;
-}
-
-.studentCard {
-  background-color: #1e1e1e;
-}
-
-.cardHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.cardHeaderContent {
-  display: flex;
-  align-items: center;
   gap: 1rem;
+  font-size: 1.1rem;
 }
 
-.cardIcon {
-  font-size: 2.5rem;
+.packageItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
 }
 
-.cardTitle {
+.packageItem:last-child {
+  border-bottom: none;
+}
+
+.packageName {
+  color: #555;
+}
+
+.packagePrice {
   color: #2764b4ff;
-  font-size: 1.3rem;
-  margin: 0 0 0.3rem;
+  font-weight: 600;
 }
 
-.studentCardTitle {
-  color: #59c2ffff;
+.section {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.levelBadge {
-  color: white;
-  padding: 0.2rem 0.8rem;
-  border-radius: 12px;
+.sectionTitle {
+  font-size: 2.2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.moduleGrid, .supportGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.moduleCard, .supportCard {
+  background-color: #fff;
+  border-radius: 16px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.moduleCard:hover, .supportCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(39, 100, 180, 0.15);
+}
+
+.moduleHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.moduleIcon {
+  font-size: 2rem;
+  color: #2764b4ff;
+  margin-top: 5px;
+}
+
+.moduleTitle {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+}
+
+.moduleLevel {
   font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.levelBeginner {
-  background-color: #28a745;
-}
-.levelIntermediate {
-  background-color: #ffc107;
-  color: #000;
-}
-.levelAdvanced {
-  background-color: #dc3545;
-}
-
-.cardDescription {
-  color: #ccc;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.listTitle {
+  font-weight: 700;
+  text-transform: uppercase;
   color: #fff;
+  background-color: #6c757d;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+.levelBeginner { background-color: #28a745; }
+.levelIntermediate { background-color: #ffc107; color: #333; }
+.levelAdvanced { background-color: #dc3545; }
+
+.moduleDesc {
   font-size: 1rem;
-  margin: 0 0 0.8rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-.list {
-  color: #ccc;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  padding-left: 1.2rem;
-  margin: 0;
+.learnTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.75rem;
 }
 
-.listItem {
-  margin-bottom: 0.3rem;
+.learnList {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
-.cardFooter {
+.learnList li {
+  font-size: 0.95rem;
+  color: #666;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.learnList li::before {
+  content: '✓';
+  color: #2764b4ff;
+  position: absolute;
+  left: 0;
+}
+
+.moduleFooter {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
   padding-top: 1rem;
-  border-top: 1px solid #333;
+  border-top: 1px solid #eee;
 }
 
-.price {
-  color: #2764b4ff;
-  font-size: 1.4rem;
+.modulePrice, .moduleDuration {
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.2rem;
 }
 
-.studentPrice {
-  color: #59c2ffff;
-}
+.modulePrice { color: #2764b4ff; }
+.moduleDuration { color: #555; }
 
-.duration {
-  color: #ccc;
-  font-size: 0.9rem;
-}
-
-.actionButton {
+.bookButton {
   background-color: #2764b4ff;
-  color: white;
+  color: #fff;
   border: none;
-  padding: 0.8rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   font-size: 0.95rem;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
 
-.actionButton:hover {
-  background-color: #1e4d87;
-  transform: scale(1.05);
+.bookButton:hover {
+  background-color: #0056d3;
 }
 
-.benefitsSection {
-  background-color: #1e1e1e;
-  padding: 2.5rem;
-  border-radius: 16px;
-  max-width: 1000px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 238, 182, 0.2);
-}
-
-.benefitsTitle {
-  color: #59c2ffff;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.benefitsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.benefit {
-  text-align: center;
-}
-
-.benefitIcon {
-  font-size: 2rem;
-  margin-bottom: 0.8rem;
-}
-
-.benefitTitle {
-  color: #fff;
-  font-size: 1.1rem;
-  margin: 0 0 0.5rem;
-}
-
-.benefitDesc {
-  color: #ccc;
-  font-size: 0.95rem;
-  margin: 0;
-  line-height: 1.4;
-}
-
-.whatsappCta {
-  background-color: #1e1e1e;
-  padding: 2.5rem;
-  border-radius: 16px;
-  max-width: 800px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(39, 100, 180, 0.2);
-}
-
-.whatsappTitle {
-  color: #59c2ffff;
-  font-size: 1.8rem;
+.supportIcon {
+  font-size: 2.5rem;
+  color: #2764b4ff;
   margin-bottom: 1rem;
 }
 
-.whatsappText {
-  color: #ddd;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  margin-bottom: 2rem;
+.supportTitle {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 0.75rem;
 }
 
-.whatsappButtons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+.supportDesc {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-.whatsappButton {
-  background-color: #25d366;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
+.supportPrice {
   font-size: 1.1rem;
-  border-radius: 8px;
-  cursor: pointer;
   font-weight: 600;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  color: #2764b4ff;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
 }
 
-.whatsappButton:hover {
-  background-color: #20b358;
-  transform: scale(1.05);
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
-.whatsappButton span {
+.whyItem {
+  text-align: center;
+}
+
+.whyIcon {
+  font-size: 2.5rem;
+  color: #2764b4ff;
+  margin-bottom: 1rem;
+}
+
+.whyTitle {
   font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 
-.whatsappSecondaryButton {
-  background-color: transparent;
-  color: #25d366;
-  border: 2px solid #25d366;
-}
-
-.whatsappSecondaryButton:hover {
-  background-color: #25d366;
-  color: white;
-}
-
-.contactInfo {
-  margin-top: 1.5rem;
-  font-size: 0.9rem;
-  color: #aaa;
+.whyDesc {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .githubTrainingSection,
-  .githubTrainingSection.collapsed {
+  .pageSection,
+  .pageSection.collapsed {
     padding: 2rem 1rem;
   }
 
@@ -381,24 +320,6 @@
   .subtitle.collapsed {
     font-size: 1.1rem;
   }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .benefitsSection,
-  .whatsappCta {
-    padding: 2rem 1.5rem;
-  }
-
-  .benefitsTitle,
-  .whatsappTitle {
-    font-size: 1.8rem;
-  }
-
-  .benefitsGrid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 480px) {
@@ -410,14 +331,5 @@
   .subtitle,
   .subtitle.collapsed {
     font-size: 1rem;
-  }
-
-  .card {
-    padding: 1.5rem;
-  }
-
-  .whatsappButton,
-  .whatsappSecondaryButton {
-    width: 100%;
   }
 }

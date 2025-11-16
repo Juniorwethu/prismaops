@@ -1,5 +1,6 @@
 // src/pages/ContactUs.tsx
 import React, { useContext } from 'react';
+import { FaEnvelope, FaPhoneAlt, FaClock } from 'react-icons/fa';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './ContactUs.module.css';
 
@@ -27,17 +28,17 @@ const ContactUs: React.FC = () => {
           
           <div className={styles.infoGroup}>
             <div className={styles.infoItem}>
-              <span className={styles.infoIcon}>📧</span>
+              <FaEnvelope className={`${styles.infoIcon} ${styles.emailIcon}`} />
               <div>
                 <h3 className={styles.infoTitle}>Email</h3>
-                <a href="mailto:Admin@Prisma.Ops.com" className={styles.infoLink}>
-                  Admin@Prisma.Ops.com
+                <a href="mailto:PrismaOps@outlook.com" className={styles.infoLink}>
+                  PrismaOps@outlook.com
                 </a>
               </div>
             </div>
 
             <div className={styles.infoItem}>
-              <span className={styles.infoIcon}>📱</span>
+              <FaPhoneAlt className={`${styles.infoIcon} ${styles.phoneIcon}`} />
               <div>
                 <h3 className={styles.infoTitle}>Phone</h3>
                 <div className={styles.infoLinks}>
@@ -49,7 +50,7 @@ const ContactUs: React.FC = () => {
             </div>
 
             <div className={styles.infoItem}>
-              <span className={styles.infoIcon}>⏰</span>
+              <FaClock className={`${styles.infoIcon} ${styles.clockIcon}`} />
               <div>
                 <h3 className={styles.infoTitle}>Response Time</h3>
                 <p className={styles.infoText}>
@@ -64,7 +65,7 @@ const ContactUs: React.FC = () => {
       {/* Additional CTA */}
       <div className={styles.additionalCta}>
         <h3 className={styles.ctaTitle}>
-          🚀 Ready to Get Started?
+          Ready to Get Started?
         </h3>
         <p className={styles.ctaText}>
           Whether you need web development, UI design, GitHub training, or any other tech service, 

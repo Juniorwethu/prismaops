@@ -152,6 +152,9 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .hero {
+    margin-bottom: 3rem;
+  }
   .heroTitle {
     font-size: 2.5rem;
   }
@@ -165,13 +168,17 @@
 
 @media (max-width: 480px) {
   .landingPage, .landingPage.collapsed {
-    padding: 1rem;
+    padding: 2rem 1rem;
   }
   .heroTitle {
     font-size: 2rem;
   }
   .hero {
     padding: 2rem 1rem;
+    margin-bottom: 2rem;
+  }
+  .mainContent {
+    gap: 3rem;
   }
 }
 

@@ -1,8 +1,8 @@
 /* src/pages/ContactUs.module.css */
 .contactUsSection {
   min-height: 100vh;
-  background-color: #111;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   font-family: 'Segoe UI', sans-serif;
   padding: 2rem 5vw;
   display: flex;
@@ -41,7 +41,7 @@
 
 .subtitle {
   font-size: 1.2rem;
-  color: #ccc;
+  color: #666;
   line-height: 1.5;
   margin-bottom: 0;
   transition: font-size 0.3s ease;
@@ -62,13 +62,20 @@
 }
 
 .contactInfo {
-  background-color: #1e1e1e;
+  background-color: #fff;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
   flex: 1 1 300px;
   min-width: 300px;
   max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contactInfo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(39, 100, 180, 0.15);
 }
 
 .sectionTitle {
@@ -93,8 +100,12 @@
   font-size: 1.5rem;
 }
 
+.emailIcon { color: #d44638; }
+.phoneIcon { color: #34a853; }
+.clockIcon { color: #fbbc05; }
+
 .infoTitle {
-  color: #fff;
+  color: #333;
   font-size: 1rem;
   margin: 0;
 }
@@ -112,18 +123,25 @@
 }
 
 .infoText {
-  color: #ccc;
+  color: #666;
   font-size: 0.95rem;
   margin: 0;
 }
 
 .additionalCta {
   text-align: center;
-  background-color: #1e1e1e;
+  background-color: #fff;
   padding: 2rem;
   border-radius: 16px;
   max-width: 800px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.additionalCta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(39, 100, 180, 0.15);
 }
 
 .ctaTitle {
@@ -133,7 +151,7 @@
 }
 
 .ctaText {
-  color: #ccc;
+  color: #666;
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
@@ -182,78 +200,5 @@
   .contactInfo,
   .additionalCta {
     padding: 1.5rem;
-  }
-}
-.additionalCta {
-  text-align: center;
-  background-color: #1e1e1e;
-  padding: 2rem;
-  border-radius: 16px;
-  max-width: 800px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.ctaTitle {
-  color: #2764b4ff;
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-}
-
-.ctaText {
-  color: #ccc;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .contactUsSection,
-  .contactUsSection.collapsed {
-    padding: 2rem 1rem;
-  }
-
-  .title,
-  .title.collapsed {
-    font-size: 2.5rem;
-  }
-
-  .subtitle,
-  .subtitle.collapsed {
-    font-size: 1.1rem;
-  }
-
-  .contentWrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contactInfo,
-  .contactFormContainer {
-    max-width: 100%;
-    min-width: unset;
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .title,
-  .title.collapsed {
-    font-size: 2rem;
-  }
-
-  .subtitle,
-  .subtitle.collapsed {
-    font-size: 1rem;
-  }
-
-  .contactInfo,
-  .contactFormContainer,
-  .additionalCta {
-    padding: 1.5rem;
-  }
-
-  .contactFormContainer {
-    min-width: unset;
   }
 }
