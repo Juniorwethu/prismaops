@@ -1,47 +1,53 @@
 // src/pages/GraphicDesign.tsx
 import React, { useContext } from 'react';
-import { FaPaintBrush, FaMobileAlt, FaAddressCard, FaChalkboardTeacher, FaFileAlt, FaLightbulb } from 'react-icons/fa';
+import { LuPaintbrush, LuSmartphone, LuContact, LuPresentation, LuFileText, LuLightbulb } from 'react-icons/lu';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './GraphicDesign.module.css';
 
-const graphicDesignServices = [
+const graphicDesignServices: {
+  icon: React.ElementType;
+  title: string;
+  desc: string;
+  price: string;
+  colorClass: string;
+}[] = [
   {
-    icon: FaPaintBrush,
+    icon: LuPaintbrush,
     title: 'Logo & Branding',
     desc: 'Custom logo design, brand color palette, and typography for a unique identity.',
     price: 'R800 - R2,000',
     colorClass: 'iconColor1'
   },
   {
-    icon: FaMobileAlt,
+    icon: LuSmartphone,
     title: 'Social Media Content',
     desc: 'Eye-catching posts, banners, and stories for Instagram, Facebook, LinkedIn, and more.',
     price: 'R150 per post / R1,000 for 10-pack',
     colorClass: 'iconColor2'
   },
   {
-    icon: FaAddressCard,
+    icon: LuContact,
     title: 'Business Cards & Stationery',
     desc: 'Professional business cards, letterheads, and email signatures.',
     price: 'R500 - R1,200',
     colorClass: 'iconColor3'
   },
   {
-    icon: FaChalkboardTeacher,
+    icon: LuPresentation,
     title: 'Presentation & Pitch Decks',
     desc: 'Custom PowerPoint/Google Slides design for business, academic, or investor presentations.',
     price: 'R800 - R2,500',
     colorClass: 'iconColor4'
   },
   {
-    icon: FaFileAlt,
+    icon: LuFileText,
     title: 'Flyers & Posters',
     desc: 'Promotional flyers, event posters, and print-ready designs.',
     price: 'R400 - R1,000',
     colorClass: 'iconColor5'
   },
   {
-    icon: FaLightbulb,
+    icon: LuLightbulb,
     title: 'Custom Requests',
     desc: 'Any other graphic design needs? Get a custom quote for your project.',
     price: 'Contact for quote',

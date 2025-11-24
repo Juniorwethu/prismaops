@@ -1,4 +1,21 @@
 /* General Section Styles */
+.pageSection {
+  padding: 2rem 4rem;
+  transition: margin-left 0.3s ease-in-out;
+  background-color: #efefef;
+  color: #111827;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pageSection.collapsed {
+  padding: 2rem 6rem;
+}
+
+/* Backwards-compatible selector used earlier */
 .portfolioSection {
   padding: 2rem 4rem;
   transition: margin-left 0.3s ease-in-out;
@@ -14,20 +31,26 @@
 /* Header */
 .header {
   text-align: center;
+  color: #9921c8;
   margin-bottom: 3rem;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  color: #9921c8;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: font-size 0.3s ease;
 }
 
 .subtitle {
-  font-size: 1.125rem;
-  color: #4b5563;
+  font-size: 1.2rem;
+  color: #0e0f10;
+  line-height: 1.5;
   max-width: 800px;
   margin: 0 auto;
+  transition: font-size 0.3s ease;
 }
 
 /* Services Grid */
@@ -40,22 +63,64 @@
 
 .serviceCard {
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.serviceCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #8a28a8, #150f15);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(138, 40, 168, 0.15);
+  border-color: transparent;
+}
+
+.serviceCard:hover::after {
+  transform: scaleX(1);
 }
 
 .serviceHeader {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
 .serviceIcon {
-  font-size: 2rem;
+  font-size: 2.5rem;
+}
+
+/* Icons: use purple stroke, no fill */
+.serviceIcon,
+.serviceIcon svg,
+.benefitIcon,
+.benefitIcon svg,
+.benefitIconSvg,
+.benefitIconSvg svg,
+.pageSection svg {
+  color: #9921c8; /* purple */
+  fill: none;    /* remove fill */
+  stroke: currentColor; /* use color for strokes */
 }
 
 .serviceTitle {
@@ -64,10 +129,13 @@
 }
 
 .serviceDescription {
+  font-size: 0.95rem;
   color: #4b5563;
   margin-bottom: 1.5rem;
   flex-grow: 1;
+  line-height: 1.6;
 }
+
 
 .featuresTitle {
   font-weight: 600;
@@ -78,6 +146,8 @@
   list-style-position: inside;
   margin-bottom: 1.5rem;
   color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.8;
 }
 
 .featureItem {
@@ -94,8 +164,10 @@
 }
 
 .price {
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #9921c8;
+  margin-bottom: 1rem;
 }
 
 .duration {
@@ -104,7 +176,7 @@
 }
 
 .quoteButton {
-  background-color: #10b981;
+  background-color: #8a28a8f2;
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -115,7 +187,7 @@
 }
 
 .quoteButton:hover {
-  background-color: #059669;
+  background-color: #96057b;
 }
 
 /* Why Choose Us Section */
@@ -141,6 +213,11 @@
   margin-bottom: 1rem;
 }
 
+.benefitIconSvg {
+  font-size: 2.5rem;
+}
+
+
 .benefitTitle {
   font-size: 1.25rem;
   font-weight: 600;
@@ -161,12 +238,13 @@
 }
 
 .ctaTitle {
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
 
 .ctaText {
+  font-size: 1.1rem;
   color: #d1d5db;
   margin-bottom: 2rem;
   max-width: 600px;
@@ -197,12 +275,12 @@
 }
 
 .primaryButton {
-  background-color: #3b82f6;
+  background-color: #dad7db;
   color: white;
 }
 
 .primaryButton:hover {
-  background-color: #2563eb;
+  background-color: #741a81;
 }
 
 .secondaryButton {
@@ -273,12 +351,14 @@
     padding: 1.5rem 1rem;
   }
 
-  .title {
-    font-size: 2rem;
+  .title,
+  .title.collapsed {
+    font-size: 2.5rem;
   }
 
-  .subtitle {
-    font-size: 1rem;
+  .subtitle,
+  .subtitle.collapsed {
+    font-size: 1.1rem;
   }
 
   .benefitsGrid {
@@ -310,5 +390,17 @@
     margin-bottom: 0;
     width: 100%;
     max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title,
+  .title.collapsed {
+    font-size: 2rem;
+  }
+
+  .subtitle,
+  .subtitle.collapsed {
+    font-size: 1rem;
   }
 }

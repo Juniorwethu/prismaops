@@ -77,122 +77,132 @@ export const Sample: React.FC = () => {
 
   return (
     <section className={`${styles.sampleSection} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', flexDirection: 'column' }}>
-        <h1 style={{ fontSize: '3rem', fontWeight: 'bold' }}>Coming Soon</h1>
-        <p style={{ fontSize: '1.2rem', marginTop: '1rem' }}>We are working hard to bring you our portfolio samples. Stay tuned!</p>
-      </div>
-      {/*
-      // Header
-      <div className={`${styles.header} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-        <h1 className={`${styles.title} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-          Portfolio Samples
-        </h1>
-        <p className={`${styles.subtitle} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-          Explore our <strong>portfolio examples</strong> across different industries and styles. 
-          Each project demonstrates our commitment to quality, creativity, and professional excellence.
-        </p>
-      </div>
-
-      // Category Filter
-      <div className={styles.categoryFilter}>
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
-            className={`${styles.categoryButton} ${selectedCategory === category ? styles.selected : ''}`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
-      // Portfolio Grid
-      <div className={styles.portfolioGrid}>
-        {filteredSamples.map((sample, idx) => (
-          <div key={idx} className={styles.sampleCard}>
-            // Image Placeholder
-            <div className={styles.imagePlaceholder}>
-              <div className={styles.imageContent}>
-                <span className={styles.imageIcon}>🖼️</span>
-                <span className={styles.imageTitle}>
-                  {sample.title}
-                </span>
-              </div>
-              <div className={styles.typeBadge}>
-                {sample.type}
-              </div>
-            </div>
-
-            // Content
-            <div className={styles.cardContent}>
-              <div className={styles.cardHeader}>
-                <div className={styles.cardCategory}>
-                  {sample.category}
-                </div>
-                <h3 className={styles.cardTitle}>
-                  {sample.title}
-                </h3>
-                <p className={styles.cardDescription}>
-                  {sample.description}
-                </p>
-              </div>
-
-              // Features
-              <div className={styles.features}>
-                <h4 className={styles.listTitle}>
-                  Key Features:
-                </h4>
-                <div className={styles.tags}>
-                  {sample.features.map((feature, featureIdx) => (
-                    <span key={featureIdx} className={styles.featureTag}>
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              // Technologies
-              <div className={styles.technologies}>
-                <h4 className={styles.listTitle}>
-                  Technologies:
-                </h4>
-                <div className={styles.tags}>
-                  {sample.technologies.map((tech, techIdx) => (
-                    <span key={techIdx} className={styles.techTag}>
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              // Action Button
-              <button className={styles.actionButton}>
-                View Live Demo
-              </button>
-            </div>
+      <div className={styles.contentWrapper}>
+        <div className={styles.loaderContainer}>
+          <div className={styles.cube}>
+            <div className={`${styles.face} ${styles.front}`}></div>
+            <div className={`${styles.face} ${styles.back}`}></div>
+            <div className={`${styles.face} ${styles.right}`}></div>
+            <div className={`${styles.face} ${styles.left}`}></div>
+            <div className={`${styles.face} ${styles.top}`}></div>
+            <div className={`${styles.face} ${styles.bottom}`}></div>
           </div>
-        ))}
-      </div>
-
-      // CTA Section
-      <div className={styles.ctaSection}>
-        <h3 className={styles.ctaTitle}>
-          🎯 Inspired by What You See?
-        </h3>
-        <p className={styles.ctaText}>
-          These are just a few examples of what we can create for you. Every portfolio is custom-designed 
-          to match your unique style, goals, and industry requirements.
-        </p>
-        <div className={styles.ctaButtons}>
-          <button className={styles.primaryButton}>
-            Start Your Portfolio
-          </button>
-          <button className={styles.secondaryButton}>
-            Get Custom Quote
-          </button>
+          <h1 className={styles.comingSoonTitle}>Coming Soon</h1>
+          <p className={styles.comingSoonText}>We are working hard to bring you our portfolio samples. Stay tuned!</p>
         </div>
+        {/*
+        // Header
+        <div className={`${styles.header} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
+          <h1 className={`${styles.title} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
+            Portfolio Samples
+          </h1>
+          <p className={`${styles.subtitle} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
+            Explore our <strong>portfolio examples</strong> across different industries and styles. 
+            Each project demonstrates our commitment to quality, creativity, and professional excellence.
+          </p>
+        </div>
+
+        // Category Filter
+        <div className={styles.categoryFilter}>
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`${styles.categoryButton} ${selectedCategory === category ? styles.selected : ''}`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        // Portfolio Grid
+        <div className={styles.portfolioGrid}>
+          {filteredSamples.map((sample, idx) => (
+            <div key={idx} className={styles.sampleCard}>
+              // Image Placeholder
+              <div className={styles.imagePlaceholder}>
+                <div className={styles.imageContent}>
+                  <span className={styles.imageIcon}>🖼️</span>
+                  <span className={styles.imageTitle}>
+                    {sample.title}
+                  </span>
+                </div>
+                <div className={styles.typeBadge}>
+                  {sample.type}
+                </div>
+              </div>
+
+              // Content
+              <div className={styles.cardContent}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.cardCategory}>
+                    {sample.category}
+                  </div>
+                  <h3 className={styles.cardTitle}>
+                    {sample.title}
+                  </h3>
+                  <p className={styles.cardDescription}>
+                    {sample.description}
+                  </p>
+                </div>
+
+                // Features
+                <div className={styles.features}>
+                  <h4 className={styles.listTitle}>
+                    Key Features:
+                  </h4>
+                  <div className={styles.tags}>
+                    {sample.features.map((feature, featureIdx) => (
+                      <span key={featureIdx} className={styles.featureTag}>
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                // Technologies
+                <div className={styles.technologies}>
+                  <h4 className={styles.listTitle}>
+                    Technologies:
+                  </h4>
+                  <div className={styles.tags}>
+                    {sample.technologies.map((tech, techIdx) => (
+                      <span key={techIdx} className={styles.techTag}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                // Action Button
+                <button className={styles.actionButton}>
+                  View Live Demo
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        // CTA Section
+        <div className={styles.ctaSection}>
+          <h3 className={styles.ctaTitle}>
+            🎯 Inspired by What You See?
+          </h3>
+          <p className={styles.ctaText}>
+            These are just a few examples of what we can create for you. Every portfolio is custom-designed 
+            to match your unique style, goals, and industry requirements.
+          </p>
+          <div className={styles.ctaButtons}>
+            <button className={styles.primaryButton}>
+              Start Your Portfolio
+            </button>
+            <button className={styles.secondaryButton}>
+              Get Custom Quote
+            </button>
+          </div>
+        </div>
+        */}
       </div>
-      */}
     </section>
   );
 };

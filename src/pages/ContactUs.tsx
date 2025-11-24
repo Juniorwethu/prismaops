@@ -1,6 +1,7 @@
 // src/pages/ContactUs.tsx
 import React, { useContext } from 'react';
-import { FaEnvelope, FaPhoneAlt, FaClock } from 'react-icons/fa';
+import { LuMail, LuPhone, LuClock } from 'react-icons/lu';
+import { FaInstagram } from 'react-icons/fa';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './ContactUs.module.css';
 
@@ -28,7 +29,7 @@ const ContactUs: React.FC = () => {
           
           <div className={styles.infoGroup}>
             <div className={styles.infoItem}>
-              <FaEnvelope className={`${styles.infoIcon} ${styles.emailIcon}`} />
+              <LuMail className={`${styles.infoIcon} ${styles.emailIcon}`} />
               <div>
                 <h3 className={styles.infoTitle}>Email</h3>
                 <a href="mailto:PrismaOps@outlook.com" className={styles.infoLink}>
@@ -38,7 +39,17 @@ const ContactUs: React.FC = () => {
             </div>
 
             <div className={styles.infoItem}>
-              <FaPhoneAlt className={`${styles.infoIcon} ${styles.phoneIcon}`} />
+              <FaInstagram className={styles.infoIcon} style={{ color: '#111', background: 'white', borderRadius: '4px' }} />
+              <div>
+                <h3 className={styles.infoTitle}>Instagram</h3>
+                <a href="https://www.instagram.com/prismaops/" className={styles.infoLink} target="_blank" rel="noopener noreferrer">
+                  @prismaops
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.infoItem}>
+              <LuPhone className={`${styles.infoIcon} ${styles.phoneIcon}`} />
               <div>
                 <h3 className={styles.infoTitle}>Phone</h3>
                 <div className={styles.infoLinks}>
@@ -50,7 +61,7 @@ const ContactUs: React.FC = () => {
             </div>
 
             <div className={styles.infoItem}>
-              <FaClock className={`${styles.infoIcon} ${styles.clockIcon}`} />
+              <LuClock className={`${styles.infoIcon} ${styles.clockIcon}`} />
               <div>
                 <h3 className={styles.infoTitle}>Response Time</h3>
                 <p className={styles.infoText}>

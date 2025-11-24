@@ -60,8 +60,9 @@
 
 .title {
   font-size: 3rem;
-  color: #2764b4ff;
+  color: rgb(98, 64, 183);
   margin-bottom: 1rem;
+  font-weight: 600;
   line-height: 1.2;
   transition: font-size 0.3s ease;
 }
@@ -72,7 +73,7 @@
 
 .subtitle {
   font-size: 1.2rem;
-  color: #666;
+  color: #1d1b1b;
   line-height: 1.5;
   margin-bottom: 0;
   transition: font-size 0.3s ease;
@@ -110,7 +111,7 @@
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(90deg, #2764b4, #4e85d1);
+  background: linear-gradient(90deg, #8027b4, #d30b0b);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
@@ -128,25 +129,48 @@
 
 .serviceIcon {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
 }
 
-.iconColor1 { color: #673AB7; } /* Purple */
-.iconColor2 { color: #E91E63; } /* Pink */
-.iconColor3 { color: #00BCD4; } /* Cyan */
-.iconColor4 { color: #FF9800; } /* Orange */
-.iconColor5 { color: #4CAF50; } /* Green */
-.iconColor6 { color: #795548; } /* Brown */
+/* Make icons match the title color, use stroke only (no fill), and sit inline with the title */
+.serviceIcon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.75rem 0 0;
+  color: rgb(98, 64, 183);
+}
+
+.serviceIcon svg,
+.iconColor1 svg,
+.iconColor2 svg,
+.iconColor3 svg,
+.iconColor4 svg,
+.iconColor5 svg,
+.iconColor6 svg {
+  fill: none; /* remove fills */
+  stroke: currentColor; /* use current color for strokes */
+  color: inherit;
+}
+
+.iconColor1,
+.iconColor2,
+.iconColor3,
+.iconColor4,
+.iconColor5,
+.iconColor6 {
+  color: rgb(98, 64, 183);
+}
 
 .serviceTitle {
   font-size: 1.4rem;
-  color: #333;
+  color: #211e1e;
   margin-bottom: 0.75rem;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .serviceDesc {
   font-size: 0.95rem;
-  color: #666;
+  color: #1e1c1c;
   line-height: 1.6;
   flex-grow: 1;
   margin-bottom: 1.5rem;
@@ -155,7 +179,7 @@
 .servicePrice {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #2764b4ff;
+  color: rgb(142, 37, 228);
   margin-bottom: 1rem;
 }
 
@@ -176,7 +200,7 @@
 
 .featuresList li::before {
   content: '✔';
-  color: #2764b4ff;
+  color: rgb(74, 117, 173);
   position: absolute;
   left: 0;
 }
@@ -194,18 +218,18 @@
 
 .ctaTitle {
   font-size: 1.8rem;
-  color: #2764b4ff;
+  color: rgba(101, 29, 138, 0.989);
   margin-bottom: 1rem;
 }
 
 .ctaText {
   font-size: 1.1rem;
-  color: #666;
+  color: #000000;
   margin-bottom: 2rem;
 }
 
 .ctaButton {
-  background-color: #2764b4ff;
+  background-color: rgb(107, 9, 153);
   color: #fff;
   border: none;
   padding: 1rem 2.5rem;
@@ -218,7 +242,7 @@
 }
 
 .ctaButton:hover {
-  background-color: #0056d3;
+  background-color: #5b15b5;
   transform: translateY(-2px);
 }
 
@@ -237,6 +261,16 @@
   .subtitle,
   .subtitle.collapsed {
     font-size: 1.1rem;
+  }
+
+  /* On smaller screens, stack icon above title */
+  .serviceIcon {
+    display: block;
+    margin: 0 0 1rem 0;
+  }
+
+  .serviceTitle {
+    display: block;
   }
 }
 

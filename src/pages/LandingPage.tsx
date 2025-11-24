@@ -1,24 +1,25 @@
 // src/pages/LandingPage.tsx
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { LuComputer, LuPalette, LuGithub } from 'react-icons/lu';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './LandingPage.module.css';
 
 const services = [
   {
-    icon: '💻',
+    icon: <LuComputer />,
     title: 'Web & UI Design',
     description: 'Stunning, modern websites and UI/UX designs that are responsive and user-friendly.',
     link: '/web-ui-design',
   },
   {
-    icon: '🎨',
+    icon: <LuPalette />,
     title: 'Graphic Design',
     description: 'Creative graphic design for branding, marketing materials, and digital content.',
     link: '/graphic-design',
   },
   {
-    icon: '💡',
+    icon: <LuGithub />,
     title: 'GitHub Training',
     description: 'Expert-led training to master Git and GitHub for seamless team collaboration.',
     link: '/github-training',

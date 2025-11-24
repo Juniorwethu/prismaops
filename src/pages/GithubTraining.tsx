@@ -1,12 +1,12 @@
 // src/pages/GithubTraining.tsx
 import React, { useContext } from 'react';
-import { FaSeedling, FaUsers, FaRocket, FaClipboardList, FaChalkboardTeacher, FaBullseye, FaCode, FaBookOpen, FaMoneyBillWave } from 'react-icons/fa';
+import { LuLeaf, LuUsers, LuRocket, LuClipboard, LuUser, LuTarget, LuCode, LuBookOpen, LuCreditCard } from 'react-icons/lu';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './GithubTraining.module.css';
 
 const trainingModules = [
   {
-    icon: FaSeedling,
+    icon: LuLeaf,
     title: 'GitHub Fundamentals',
     level: 'Beginner',
     levelClass: 'levelBeginner',
@@ -23,7 +23,7 @@ const trainingModules = [
     duration: '2-3 hours',
   },
   {
-    icon: FaUsers,
+    icon: LuUsers,
     title: 'Collaboration & Team Workflows',
     level: 'Intermediate',
     levelClass: 'levelIntermediate',
@@ -40,7 +40,7 @@ const trainingModules = [
     duration: '3-4 hours',
   },
   {
-    icon: FaRocket,
+    icon: LuRocket,
     title: 'Advanced GitHub & DevOps',
     level: 'Advanced',
     levelClass: 'levelAdvanced',
@@ -60,19 +60,19 @@ const trainingModules = [
 
 const studentSupport = [
   {
-    icon: FaClipboardList,
+    icon: LuClipboard,
     title: 'Project Planning & Architecture',
     desc: 'Help students design and plan their tech projects from concept to implementation.',
     price: 'R300/hour',
   },
   {
-    icon: FaChalkboardTeacher,
+    icon: LuUser,
     title: 'Code Review & Mentorship',
     desc: 'One-on-one mentorship sessions to review code, debug issues, and improve coding practices.',
     price: 'R400/hour',
   },
   {
-    icon: FaBullseye,
+    icon: LuTarget,
     title: 'Project Deployment & Presentation',
     desc: 'Guide students through deployment processes and help create impressive project presentations.',
     price: 'R350/hour',
@@ -80,12 +80,12 @@ const studentSupport = [
 ];
 
 const whyChooseUs = [
-  { icon: FaBullseye, title: 'Hands-On Learning', desc: 'Learn by doing with real projects and practical exercises.' },
-  { icon: FaCode, title: 'Expert Instructors', desc: 'Learn from experienced developers with industry knowledge.' },
-  { icon: FaBookOpen, title: 'Comprehensive Materials', desc: 'Access to guides, cheat sheets, and ongoing resources.' },
-  { icon: FaRocket, title: 'Career Ready', desc: 'Build skills that employers actually look for.' },
-  { icon: FaUsers, title: 'Ongoing Support', desc: 'Get help even after your training is complete.' },
-  { icon: FaMoneyBillWave, title: 'Affordable Pricing', desc: 'Student-friendly rates with flexible payment options.' },
+  { icon: LuTarget, title: 'Hands-On Learning', desc: 'Learn by doing with real projects and practical exercises.' },
+  { icon: LuCode, title: 'Expert Instructors', desc: 'Learn from experienced developers with industry knowledge.' },
+  { icon: LuBookOpen, title: 'Comprehensive Materials', desc: 'Access to guides, cheat sheets, and ongoing resources.' },
+  { icon: LuRocket, title: 'Career Ready', desc: 'Build skills that employers actually look for.' },
+  { icon: LuUsers, title: 'Ongoing Support', desc: 'Get help even after your training is complete.' },
+  { icon: LuCreditCard, title: 'Affordable Pricing', desc: 'Student-friendly rates with flexible payment options.' },
 ];
 
 export const GithubTraining: React.FC = () => {
@@ -100,7 +100,7 @@ export const GithubTraining: React.FC = () => {
 
       <div className={styles.packagesCard}>
         <h3 className={styles.packagesTitle}>
-          <FaClipboardList /> Training Packages
+          <LuClipboard /> Training Packages
         </h3>
         <ul className={styles.packagesList}>
           <li className={styles.packageItem}>

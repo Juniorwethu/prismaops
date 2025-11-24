@@ -1,5 +1,15 @@
 /* src/pages/Sample.module.css */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .sampleSection {
+  position: relative;
   min-height: 100vh;
   background-color: #111;
   color: #fff;
@@ -9,8 +19,45 @@
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
+}
+
+.sampleSection::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: #111;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(#2764b4, #2764b4), linear-gradient(#59c2ff, #59c2ff), linear-gradient(#2764b4, #2764b4), linear-gradient(#59c2ff, #59c2ff);
+  animation: rotate 10s linear infinite;
+}
+
+.sampleSection::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  left: 6px;
+  top: 6px;
+  right: 6px;
+  bottom: 6px;
+  background-color: #111;
+  border-radius: 16px;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
 }
 
 .sampleSection.collapsed {
@@ -290,6 +337,63 @@
 .secondaryButton:hover {
   background-color: #59c2ffff;
   color: #0e0e0e;
+}
+
+/* 3D Loader Styles */
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 80vh;
+  perspective: 1000px;
+}
+
+.cube {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: cube-spin 12s infinite linear;
+  margin-bottom: 2.5rem;
+}
+
+.face {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #59c2ff;
+  background: rgba(89, 194, 255, 0.1);
+  box-shadow: 0 0 15px rgba(89, 194, 255, 0.3);
+}
+
+.front { transform: translateZ(30px); }
+.back { transform: rotateY(180deg) translateZ(30px); }
+.right { transform: rotateY(90deg) translateZ(30px); }
+.left { transform: rotateY(-90deg) translateZ(30px); }
+.top { transform: rotateX(90deg) translateZ(30px); }
+.bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+@keyframes cube-spin {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.comingSoonTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.comingSoonText {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #ddd;
 }
 
 /* Responsive Styles */

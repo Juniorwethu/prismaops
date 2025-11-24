@@ -1,6 +1,7 @@
 // src/pages/Portfolio.tsx
 import React, { useContext, useEffect, useState } from 'react';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
+import { LuPaintbrush, LuFileText, LuRocket, LuSearch, LuZap, LuGem, LuTarget, LuWrench } from 'react-icons/lu';
 import styles from './Portfolio.module.css';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
@@ -27,7 +28,14 @@ export const Portfolio: React.FC = () => {
     };
   }, []);
 
-  const portfolioServices = [
+  const portfolioServices: {
+    title: string;
+    description: string;
+    features: string[];
+    price: string;
+    duration: string;
+    icon: React.ElementType;
+  }[] = [
     {
       title: "Portfolio Design & Development",
       description: "Custom-built professional portfolio websites that showcase your work beautifully. Includes responsive design, modern UI/UX, and performance optimization.",
@@ -39,9 +47,9 @@ export const Portfolio: React.FC = () => {
         "Contact form integration",
         "Social media integration"
       ],
-      price: "R2,500 - R5,000",
+      price: "R2,500 - R3,000",
       duration: "5-10 business days",
-      icon: "🎨"
+      icon: LuPaintbrush
     },
     {
       title: "Portfolio Content Management",
@@ -56,7 +64,7 @@ export const Portfolio: React.FC = () => {
       ],
       price: "R800 - R1,500",
       duration: "3-5 business days",
-      icon: "📝"
+      icon: LuFileText
     },
     {
       title: "Portfolio Hosting & Maintenance",
@@ -71,7 +79,7 @@ export const Portfolio: React.FC = () => {
       ],
       price: "R300 - R500/month",
       duration: "Ongoing",
-      icon: "🚀"
+      icon: LuRocket
     },
     {
       title: "Portfolio Audit & Optimization",
@@ -86,14 +94,38 @@ export const Portfolio: React.FC = () => {
       ],
       price: "R600 - R1,200",
       duration: "2-3 business days",
-      icon: "🔍"
+      icon: LuSearch
     }
   ];
 
-  const sectionClasses = [
-    styles.portfolioSection,
-    isSidebarCollapsed && !isMobile ? styles.collapsed : ''
-  ].join(' ');
+  const benefits: {
+    icon: React.ElementType;
+    title: string;
+    desc: string;
+  }[] = [
+    {
+      icon: LuZap,
+      title: "Fast Delivery",
+      desc: "Get your portfolio live within days, not weeks"
+    },
+    {
+      icon: LuGem,
+      title: "Professional Quality",
+      desc: "Industry-standard designs that impress employers"
+    },
+    {
+      icon: LuTarget,
+      title: "Results-Focused",
+      desc: "Portfolios designed to convert visitors into opportunities"
+    },
+    {
+      icon: LuWrench,
+      title: "Ongoing Support",
+      desc: "We're here to help even after your portfolio goes live"
+    }
+  ];
+
+  const sectionClasses = `${styles.pageSection} ${isSidebarCollapsed ? styles.collapsed : ''}`;
 
   return (
     <section className={sectionClasses}>
@@ -110,56 +142,59 @@ export const Portfolio: React.FC = () => {
 
       {/* Services Grid */}
       <div className={styles.servicesGrid}>
-        {portfolioServices.map((service, idx) => (
-          <div key={idx} className={styles.serviceCard}>
-            {/* Service Header */}
-            <div className={styles.serviceHeader}>
-              <span className={styles.serviceIcon}>{service.icon}</span>
-              <h2 className={styles.serviceTitle}>
-                {service.title}
-              </h2>
-            </div>
-
-            {/* Description */}
-            <p className={styles.serviceDescription}>
-              {service.description}
-            </p>
-
-            {/* Features */}
-            <div>
-              <h3 className={styles.featuresTitle}>
-                What's Included:
-              </h3>
-              <ul className={styles.featuresList}>
-                {service.features.map((feature, featureIdx) => (
-                  <li key={featureIdx} className={styles.featureItem}>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Pricing & Duration */}
-            <div className={styles.pricingDuration}>
-              <div>
-                <div className={styles.price}>
-                  {service.price}
+          {portfolioServices.map((service, idx) => {
+            const Icon = service.icon;
+            return (
+              <div key={idx} className={styles.serviceCard}>
+                {/* Service Header */}
+                <div className={styles.serviceHeader}>
+                  <Icon className={styles.serviceIcon} />
+                  <h2 className={styles.serviceTitle}>
+                    {service.title}
+                  </h2>
                 </div>
-                <div className={styles.duration}>
-                  {service.duration}
+
+                {/* Description */}
+                <p className={styles.serviceDescription}>
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <div>
+                  <h3 className={styles.featuresTitle}>
+                    What's Included:
+                  </h3>
+                  <ul className={styles.featuresList}>
+                    {service.features.map((feature, featureIdx) => (
+                      <li key={featureIdx} className={styles.featureItem}>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Pricing & Duration */}
+                <div className={styles.pricingDuration}>
+                  <div>
+                    <div className={styles.price}>
+                      {service.price}
+                    </div>
+                    <div className={styles.duration}>
+                      {service.duration}
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => {
+                      window.location.href = "mailto:prismaops@outlook.com?subject=Portfolio Quote Request - " + encodeURIComponent(service.title) + "&body=Hi PrismaOps Team,%0D%0A%0D%0AI'm interested in getting a quote for " + encodeURIComponent(service.title) + ".%0D%0A%0D%0APlease contact me with more details.%0D%0A%0D%0AThank you!";
+                    }}
+                    className={styles.quoteButton}
+                  >
+                    Get Quote
+                  </button>
                 </div>
               </div>
-              <button
-                onClick={() => {
-                  window.location.href = "mailto:Admin@Prisma.Ops.com?subject=Portfolio Quote Request - " + encodeURIComponent(service.title) + "&body=Hi PrismaOps Team,%0D%0A%0D%0AI'm interested in getting a quote for " + encodeURIComponent(service.title) + ".%0D%0A%0D%0APlease contact me with more details.%0D%0A%0D%0AThank you!";
-                }}
-                className={styles.quoteButton}
-              >
-                Get Quote
-              </button>
-            </div>
-          </div>
-        ))}
+            );
+          })}
       </div>
 
       {/* Why Choose Us Section */}
@@ -169,40 +204,22 @@ export const Portfolio: React.FC = () => {
         </h2>
         
         <div className={styles.benefitsGrid}>
-          {[
-            {
-              icon: "⚡",
-              title: "Fast Delivery",
-              desc: "Get your portfolio live within days, not weeks"
-            },
-            {
-              icon: "💎",
-              title: "Professional Quality",
-              desc: "Industry-standard designs that impress employers"
-            },
-            {
-              icon: "🎯",
-              title: "Results-Focused",
-              desc: "Portfolios designed to convert visitors into opportunities"
-            },
-            {
-              icon: "🛠️",
-              title: "Ongoing Support",
-              desc: "We're here to help even after your portfolio goes live"
-            }
-          ].map((benefit, idx) => (
-            <div key={idx} className={styles.benefit}>
-              <div className={styles.benefitIcon}>
-                {benefit.icon}
+          {benefits.map((benefit, idx) => {
+            const Icon = benefit.icon;
+            return (
+              <div key={idx} className={styles.benefit}>
+                <div className={styles.benefitIcon}>
+                  <Icon className={styles.benefitIconSvg} />
+                </div>
+                <h3 className={styles.benefitTitle}>
+                  {benefit.title}
+                </h3>
+                <p className={styles.benefitDesc}>
+                  {benefit.desc}
+                </p>
               </div>
-              <h3 className={styles.benefitTitle}>
-                {benefit.title}
-              </h3>
-              <p className={styles.benefitDesc}>
-                {benefit.desc}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -227,9 +244,6 @@ export const Portfolio: React.FC = () => {
               <div className={styles.contactOptions}>
                 <a href="https://wa.me/27787983991" target="_blank" rel="noopener noreferrer" className={styles.contactOptionButton}>
                   WhatsApp 1
-                </a>
-                <a href="https://wa.me/27628576852" target="_blank" rel="noopener noreferrer" className={styles.contactOptionButton}>
-                  WhatsApp 2
                 </a>
               </div>
             )}

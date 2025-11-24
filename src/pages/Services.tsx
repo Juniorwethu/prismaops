@@ -1,11 +1,21 @@
 // src/pages/Services.tsx
 import React, { useContext } from 'react';
+import {
+  LuGlobe, LuFolderGit2, LuGraduationCap, LuFileText, LuPresentation,
+  LuLayoutTemplate, LuPalette, LuWrench, LuLinkedin, LuCode, LuDatabase, LuFolderKanban
+} from 'react-icons/lu';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './Services.module.css';
 
-const servicesData = [
+const servicesData: {
+  icon: React.ElementType;
+  title: string;
+  features: string[];
+  pricing: { label: string; price: string }[];
+}[] = [
   {
-    title: '🌐 Web Designing & Development',
+    icon: LuGlobe,
+    title: 'Web Designing & Development',
     features: [
       'Responsive, modern websites tailored for startups and freelancers.',
       'Portfolio websites with blogs or project showcases.',
@@ -18,7 +28,8 @@ const servicesData = [
     ],
   },
   {
-    title: '📂 Portfolio Management & GitHub Training',
+    icon: LuFolderGit2,
+    title: 'Portfolio Management & GitHub Training',
     features: [
       'Organize GitHub repos and projects effectively.',
       'One-on-one training sessions to master version control.',
@@ -30,7 +41,8 @@ const servicesData = [
     ],
   },
   {
-    title: '🎓 Student Tech Project Assistance',
+    icon: LuGraduationCap,
+    title: 'Student Tech Project Assistance',
     features: [
       'Guidance on final year and capstone projects.',
       'Report and documentation writing support.',
@@ -42,7 +54,8 @@ const servicesData = [
     ],
   },
   {
-    title: '📄 Proposal Writing & Document Automation',
+    icon: LuFileText,
+    title: 'Proposal Writing & Document Automation',
     features: [
       'Professional proposals for freelancers and businesses.',
       'Custom templates for client onboarding and reporting.',
@@ -53,7 +66,8 @@ const servicesData = [
     ],
   },
   {
-    title: '🎤 Presentation Design & Pitch Decks',
+    icon: LuPresentation,
+    title: 'Presentation Design & Pitch Decks',
     features: [
       'Custom Google Slides or PowerPoint design.',
       'Storytelling for investors, classrooms, and events.',
@@ -64,7 +78,8 @@ const servicesData = [
     ],
   },
   {
-    title: '🖥️ Landing Page Creation',
+    icon: LuLayoutTemplate,
+    title: 'Landing Page Creation',
     features: [
       'Conversion-ready, simple landing pages.',
       'Lead capture and thank-you flows included.',
@@ -75,7 +90,8 @@ const servicesData = [
     ],
   },
   {
-    title: '🎨 Branding Kits',
+    icon: LuPalette,
+    title: 'Branding Kits',
     features: [
       'Logos, color schemes, and typography.',
       'Includes social media banners, icons, and templates.',
@@ -86,7 +102,8 @@ const servicesData = [
     ],
   },
   {
-    title: '🛠️ Maintenance & Tech Support',
+    icon: LuWrench,
+    title: 'Maintenance & Tech Support',
     features: [
       'One-time fixes or monthly support plans.',
       'Website updates and portfolio refreshes.',
@@ -97,7 +114,8 @@ const servicesData = [
     ],
   },
   {
-    title: '📄 CV & LinkedIn Optimization',
+    icon: LuLinkedin,
+    title: 'CV & LinkedIn Optimization',
     features: [
       'Tech-focused resume upgrades.',
       'LinkedIn profile writing and optimization.',
@@ -108,7 +126,8 @@ const servicesData = [
     ],
   },
   {
-    title: '💻 C# Programming Classes',
+    icon: LuCode,
+    title: 'C# Programming Classes',
     features: [
       'Learn fundamentals and advanced C# programming.',
       'Hands-on exercises and project work.',
@@ -120,7 +139,8 @@ const servicesData = [
     ],
   },
   {
-    title: '📟 JavaScript Classes',
+    icon: LuCode,
+    title: 'JavaScript Classes',
     features: [
       'Basics to advanced JavaScript concepts.',
       'DOM manipulation, async programming, and ES6+ features.',
@@ -132,7 +152,8 @@ const servicesData = [
     ],
   },
   {
-    title: '🗄️ SQL & Database Classes',
+    icon: LuDatabase,
+    title: 'SQL & Database Classes',
     features: [
       'Learn SQL queries, database design, and optimization.',
       'Work with MySQL, Firebases, and SQL Server.',
@@ -144,7 +165,8 @@ const servicesData = [
     ],
   },
   {
-    title: '📂 Google Drive / Notion Setup',
+    icon: LuFolderKanban,
+    title: 'Google Drive / Notion Setup',
     features: [
       'Organize files and workflows for teams or individuals.',
       'Dashboard creation, templates, and folder structuring.',
@@ -165,29 +187,33 @@ export const Services: React.FC = () => {
       </h1>
 
       <div className={styles.servicesGrid}>
-        {servicesData.map((service, idx) => (
-          <div key={idx} className={styles.serviceCard}>
-            <h2 className={styles.serviceTitle}>
-              {service.title}
-            </h2>
+        {servicesData.map((service, idx) => {
+          const Icon = service.icon;
+          return (
+            <div key={idx} className={styles.serviceCard}>
+              <h2 className={styles.serviceTitle}>
+                <Icon className={styles.serviceIcon} />
+                {service.title}
+              </h2>
 
-            <ul className={styles.featuresList}>
-              {service.features.map((feature, i) => (
-                <li key={i} className={styles.featureItem}>
-                  {feature}
-                </li>
-              ))}
-            </ul>
+              <ul className={styles.featuresList}>
+                {service.features.map((feature, i) => (
+                  <li key={i} className={styles.featureItem}>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
 
-            <div className={styles.pricing}>
-              {service.pricing.map((priceItem, i) => (
-                <p key={i} className={styles.priceItem}>
-                  <strong>{priceItem.label}:</strong> {priceItem.price}
-                </p>
-              ))}
+              <div className={styles.pricing}>
+                {service.pricing.map((priceItem, i) => (
+                  <p key={i} className={styles.priceItem}>
+                    <strong>{priceItem.label}:</strong> {priceItem.price}
+                  </p>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

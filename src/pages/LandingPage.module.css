@@ -1,7 +1,7 @@
 .landingPage {
   min-height: 100vh;
-  background-color: #111;
-  color: #fff;
+  background-color: #f6f4f4;
+  color: #ffffff;
   font-family: 'Segoe UI', sans-serif;
   padding: 2rem 5vw;
   overflow-y: auto;
@@ -21,21 +21,21 @@
 
 .heroTitle {
   font-size: 3.5rem;
-  color: #fff;
+  color: #060606;
   margin-bottom: 1rem;
   line-height: 1.2;
-  font-weight: 700;
+  font-weight: 200;
 }
 
 .heroSubtitle {
   font-size: 1.3rem;
-  color: #ccc;
+  color: #302f2f;
   max-width: 700px;
   margin: 0 auto 2rem;
 }
 
 .ctaButton {
-  background-color: #2764b4ff;
+  background-color: rgb(41, 97, 161);
   color: #fff;
   border: none;
   padding: 1rem 2.5rem;
@@ -48,7 +48,7 @@
 }
 
 .ctaButton:hover {
-  background-color: #0056d3;
+  background-color: #3c86ab;
   transform: translateY(-2px);
 }
 
@@ -68,7 +68,7 @@
 
 .sectionTitle {
   font-size: 2.5rem;
-  color: #2764b4ff;
+  color: rgb(62, 60, 60);
   margin-bottom: 3rem;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .serviceCard {
-  background-color: #1e1e1e;
+  background-color: #1d39b8d4;
   padding: 2.5rem 2rem;
   border-radius: 16px;
   text-align: center;
@@ -102,6 +102,9 @@
   margin-bottom: 1.5rem;
 }
 
+/* ensure landing page card icons use the site-wide icon color */
+.cardIcon { color: var(--icon-color); }
+
 .cardTitle {
   font-size: 1.5rem;
   color: #fff;
@@ -110,14 +113,14 @@
 
 .cardDescription {
   font-size: 1rem;
-  color: #ccc;
+  color: #fdfdfd;
   line-height: 1.6;
   flex-grow: 1;
   margin-bottom: 1.5rem;
 }
 
 .cardLink {
-  color: #2764b4ff;
+  color: rgb(231, 223, 10);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
@@ -130,12 +133,12 @@
 /* Final CTA */
 .finalCta {
   text-align: center;
-  background-color: #1e1e1e;
+  box-shadow: 0 8px 25px rgba(98, 152, 222, 0.3);
   padding: 3rem 2rem;
   border-radius: 16px;
   width: 100%;
   max-width: 800px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(19, 17, 17, 0.5);
 }
 
 .ctaTitle {
@@ -146,7 +149,7 @@
 
 .ctaText {
   font-size: 1.1rem;
-  color: #ccc;
+  color: #201f1a;
   margin-bottom: 2rem;
 }
 

@@ -1,54 +1,60 @@
 // src/pages/WebUIDesign.tsx
 import React, { useContext } from 'react';
-import { FaFileInvoice, FaRocket, FaGlobe, FaSearch, FaShoppingCart, FaFolderOpen, FaDesktop } from 'react-icons/fa';
+import { LuFileText, LuRocket, LuGlobe, LuSearch, LuShoppingCart, LuFolderOpen, LuMonitor } from 'react-icons/lu';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './WebUIDesign.module.css';
 
-const webUiServices = [
+const webUiServices: {
+  icon: React.ElementType;
+  title: string;
+  desc: string;
+  price: string;
+  colorClass: string;
+}[] = [
   {
-    icon: FaFileInvoice,
+    icon: LuFileText,
     title: 'Per Page Pricing',
     desc: 'Transparent pricing for each additional page. Perfect for growing sites and custom needs.',
     price: 'R400 per page (after first 3 pages)',
     colorClass: 'iconColor1'
   },
   {
-    icon: FaRocket,
+    icon: LuRocket,
     title: 'Landing Page Design',
     desc: 'High-converting, visually stunning landing pages for campaigns, products, and events.',
     price: 'R1,200 - R2,500',
     colorClass: 'iconColor2'
   },
   {
-    icon: FaGlobe,
+    icon: LuGlobe,
     title: 'Full Website Design',
     desc: 'Modern, responsive websites tailored for businesses, creators, and freelancers.',
     price: 'R2,500 - R6,000',
     colorClass: 'iconColor3'
   },
   {
-    icon: FaSearch,
+    icon: LuSearch,
     title: 'UI/UX Audit & Redesign',
     desc: 'Professional review and redesign of your existing site for better usability and aesthetics.',
     price: 'R1,000 - R2,500',
     colorClass: 'iconColor4'
   },
   {
-    icon: FaShoppingCart,
+    icon: LuShoppingCart,
     title: 'E-commerce UI',
     desc: 'Custom online store interfaces with seamless shopping experiences.',
     price: 'R3,000 - R7,000',
     colorClass: 'iconColor5'
   },
   {
-    icon: FaFolderOpen,
+    icon: LuFolderOpen,
     title: 'Portfolio & Blog UI',
     desc: 'Personal portfolios and blog layouts with interactive features and animations.',
     price: 'R1,500 - R3,500',
     colorClass: 'iconColor6'
   },
   {
-    icon: FaDesktop,
+    icon: LuMonitor,
     title: 'Custom Web App UI',
     desc: 'Unique interfaces for dashboards, SaaS, and custom web applications.',
     price: 'Contact for quote',

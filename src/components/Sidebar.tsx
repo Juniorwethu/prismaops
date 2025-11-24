@@ -11,9 +11,10 @@ interface SidebarProps {
 
 const navItems = [
   { path: '/', icon: '🏠', label: 'Home' },
+  { path: '/services', icon: '🛠️', label: 'Services' },
   { path: '/web-ui-design', icon: '🖥️', label: 'Web & UI Design' },
   { path: '/graphic-design', icon: '🖌️', label: 'Graphic Design' },
-  { path: '/portfolio', icon: '💼', label: 'Portfolio & Services' },
+  { path: '/portfolio', icon: '💼', label: 'Portfolio' },
   { path: '/github-training', icon: '📚', label: 'GitHub Training' },
   { path: '/contact', icon: '📞', label: 'Contact Us' },
   { path: '/sample', icon: '🎨', label: 'Portfolio Samples' },

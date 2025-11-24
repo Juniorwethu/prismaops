@@ -27,8 +27,9 @@
 }
 
 .title {
-  font-size: 3rem;
-  color: #2764b4ff;
+  font-size: 3 rem;
+  color: rgb(83, 124, 179);
+  font-weight: 500;
   margin-bottom: 1rem;
   line-height: 1.2;
   transition: font-size 0.3s ease;
@@ -99,13 +100,29 @@
   margin-bottom: 1rem;
 }
 
-.iconColor1 { color: #4285F4; } /* Blue */
-.iconColor2 { color: #DB4437; } /* Red */
-.iconColor3 { color: #F4B400; } /* Yellow */
-.iconColor4 { color: #0F9D58; } /* Green */
-.iconColor5 { color: #673AB7; } /* Purple */
-.iconColor6 { color: #E91E63; } /* Pink */
-.iconColor7 { color: #00BCD4; } /* Cyan */
+/* default icon color uses site variable */
+.serviceIcon { color: rgb(83, 124, 179); }
+.iconColor1 { color: rgb(83, 124, 179); }
+.iconColor2 { color: rgb(83, 124, 179); }
+.iconColor3 { color: rgb(83, 124, 179); }
+.iconColor4 { color: rgb(83, 124, 179); }
+.iconColor5 { color: rgb(83, 124, 179); }
+.iconColor6 { color: rgb(83, 124, 179); }
+.iconColor7 { color: rgb(83, 124, 179); }
+
+/* Ensure svg children inherit the title color */
+.serviceIcon svg,
+.iconColor1 svg,
+.iconColor2 svg,
+.iconColor3 svg,
+.iconColor4 svg,
+.iconColor5 svg,
+.iconColor6 svg,
+.iconColor7 svg {
+  color: inherit;
+  fill: currentColor;
+  stroke: currentColor;
+}
 
 .serviceTitle {
   font-size: 1.4rem;
