@@ -1,46 +1,148 @@
-# Getting Started with Create React App
+# 📘 PrismaOps
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site: https://prismaops.co.za/
 
-## Available Scripts
+Build, Design, and Collaborate with PrismaOps — your one-stop solution for web development, stunning design, and expert GitHub training.
 
-In the project directory, you can run:
+PrismaOps offers a suite of digital services to help businesses and creators build modern web solutions, design beautiful visuals, and grow team collaboration skills with Git and GitHub.
 
-### `npm start`
+# 🚀 Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+PrismaOps is a service-driven web platform built with modern web technologies (React + TypeScript) that showcases professional services in:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Web & UI Design
 
-### `npm test`
+Graphic Design
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+GitHub Training
 
-### `npm run build`
+Whether you’re launching a website, refining your brand visuals, or elevating your team’s development workflow, PrismaOps equips you with the expertise to succeed.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 🛠 Services We Offer
+## 🖥️ Web & UI Design
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+We create stunning, modern websites and intuitive UI/UX designs that are:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Responsive and user-friendly
 
-### `npm run eject`
+Built for performance
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Designed with best practices in accessibility
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Learn more on the website → (link/button placeholder)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🎨 Graphic Design
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Creative and impactful graphic design services for:
 
-## Learn More
+Branding and logo design
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Marketing materials (social media, banners, flyers)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Digital content and visual storytelling
+
+Learn more → (link/button placeholder)
+
+## 📚 GitHub Training
+
+Expert-led training focused on mastering Git and GitHub for seamless teamwork and collaboration.
+
+# Our training covers:
+
+Version control fundamentals
+
+Branching strategies
+
+Pull requests and workflows
+
+Real-world team practices
+
+Learn more → (link/button placeholder)
+
+# 🧠 Tech Stack
+Technology	Purpose
+TypeScript	Type safety & scalable code
+React	Frontend UI
+Vercel	Deployment & hosting
+CSS / Tailwind (if used)	Styling & responsive UI
+
+Update technologies based on your actual stack.
+
+# 🧩 Features
+
+Modern, responsive UI built with React + TypeScript
+
+Lightweight, performant design
+
+Service showcase pages
+
+Contact & inquiry forms (if applicable)
+
+SEO-friendly structure
+
+# 🧪 Getting Started
+1. Clone the repository
+git clone https://github.com/<your-username>/prismaops.git
+cd prismaops
+
+2. Install Dependencies
+
+Using npm:
+
+npm install
+
+
+Or with Yarn:
+
+yarn install
+
+3. Environment Variables
+
+If your app uses environment variables (API URLs, keys), create a .env file:
+
+REACT_APP_API_BASE_URL=https://api.prismaops.co.za
+
+# 🧠 Development
+
+Start the development server:
+
+npm run dev
+
+
+Open http://localhost:3000
+ to view the app in your browser.
+
+# 🛠 Build
+
+Generate a production-ready build:
+
+npm run build
+
+
+The optimized build will be output into the build/ or dist/ folder.
+
+# ☁️ Deployment
+
+This site is deployed on Vercel. To redeploy:
+
+npm i -g vercel
+vercel
+
+
+Vercel will automatically detect your project and deploy with zero configuration.
+
+## 🧑‍🤝‍🧑 Contributing
+
+Contributions are welcome! To contribute:
+
+Fork the repository
+
+Create a feature branch (git checkout -b feature/xyz)
+
+Commit your changes
+
+Open a Pull Request
+
+## 📄 License
+
+Distributed under the MIT License.
