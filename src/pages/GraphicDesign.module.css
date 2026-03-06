@@ -479,7 +479,13 @@
     transition: none;
   }
   
-  @keyframes rotate,
+  @keyframes rotate {
+    from, to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  
   @keyframes sparkle {
     from, to {
       transform: none;

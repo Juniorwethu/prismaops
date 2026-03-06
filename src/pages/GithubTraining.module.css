@@ -755,14 +755,6 @@
     animation: none;
     transition: none;
   }
-  
-  @keyframes rotate,
-  @keyframes sparkle {
-    from, to {
-      transform: none;
-      opacity: 1;
-    }
-  }
 }
 
 /* Print Styles */
