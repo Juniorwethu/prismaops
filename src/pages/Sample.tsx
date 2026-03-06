@@ -68,12 +68,13 @@ export const Sample: React.FC = () => {
     }
   ];
 
-  const categories = ["All", "Graphic Design", "Web Development", "Photography", "Business", "Academic", "Freelance"];
-  const [selectedCategory, setSelectedCategory] = React.useState("All");
+  // Uncomment these when enabling the portfolio samples functionality
+  // const categories = ["All", "Graphic Design", "Web Development", "Photography", "Business", "Academic", "Freelance"];
+  // const [selectedCategory, setSelectedCategory] = React.useState("All");
 
-  const filteredSamples = selectedCategory === "All" 
-    ? portfolioSamples 
-    : portfolioSamples.filter(sample => sample.category === selectedCategory);
+  // const filteredSamples = selectedCategory === "All" 
+  //   ? portfolioSamples 
+  //   : portfolioSamples.filter(sample => sample.category === selectedCategory);
 
   return (
     <section className={`${styles.sampleSection} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
