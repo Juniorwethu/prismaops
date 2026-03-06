@@ -1,36 +1,130 @@
 /* src/components/Layout.module.css */
+
+/* Layout Container */
 .layoutContainer {
   display: flex;
   width: 100vw;
   min-height: 100vh;
+  min-height: 100dvh; /* Use dynamic viewport height for better mobile support */
   overflow-x: hidden;
+  position: relative;
 }
 
+/* Main Content Base Styles */
 .mainContent {
   min-height: 100vh;
+  min-height: 100dvh;
   flex-grow: 1;
   background-color: #111;
   color: #fff;
-  transition: margin-left 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  transition: margin-left 0.3s ease, width 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   overflow-y: auto;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* Desktop Styles */
+/* Desktop Styles (> 1024px) */
 .mainContent.desktop {
-  margin-left: 200px;
-  width: calc(100vw - 200px);
-  padding: 0;
+  margin-left: 220px;
+  width: calc(100vw - 220px);
+  padding: 2rem;
 }
 
 .mainContent.desktop.collapsed {
-  margin-left: 60px;
-  width: calc(100vw - 60px);
+  margin-left: 65px;
+  width: calc(100vw - 65px);
 }
 
-/* Mobile Styles */
+/* Tablet Styles (769px - 1024px) */
+.mainContent.tablet {
+  margin-left: 0;
+  width: 100vw;
+  padding: 1.5rem;
+  padding-top: 5rem; /* Space for mobile menu button */
+}
+
+/* Mobile Styles (≤ 768px) */
 .mainContent.mobile {
   margin-left: 0;
   width: 100vw;
   padding: 1rem;
+  padding-top: 5rem; /* Space for mobile menu button */
+}
+
+/* Responsive Media Queries */
+
+/* Extra Small Devices (phones, less than 480px) */
+@media (max-width: 480px) {
+  .mainContent.mobile {
+    padding: 0.75rem;
+    padding-top: 4.5rem;
+  }
+}
+
+/* Small Devices (landscape phones, 481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .mainContent.mobile {
+    padding: 1rem;
+    padding-top: 5rem;
+  }
+}
+
+/* Medium Devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .mainContent.tablet {
+    padding: 1.5rem;
+    padding-top: 2rem;
+  }
+}
+
+/* Large Devices (desktops, 1025px to 1439px) */
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .mainContent.desktop {
+    margin-left: 220px;
+    width: calc(100vw - 220px);
+    padding: 2rem;
+  }
+  
+  .mainContent.desktop.collapsed {
+    margin-left: 65px;
+    width: calc(100vw - 65px);
+  }
+}
+
+/* Extra Large Devices (large desktops, 1440px and up) */
+@media (min-width: 1440px) {
+  .mainContent.desktop {
+    margin-left: 240px;
+    width: calc(100vw - 240px);
+    padding: 2.5rem;
+  }
+  
+  .mainContent.desktop.collapsed {
+    margin-left: 65px;
+    width: calc(100vw - 65px);
+  }
+}
+
+/* Landscape Orientation Support */
+@media (max-height: 600px) and (orientation: landscape) {
+  .mainContent.mobile,
+  .mainContent.tablet {
+    padding-top: 4rem;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .mainContent {
+    transition: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .mainContent {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
 }
