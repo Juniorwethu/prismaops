@@ -390,6 +390,8 @@
 .ctaButton {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   background: linear-gradient(135deg, #6366f1 0%, #3b82f6 50%, #2563eb 100%);
   color: #fff;
@@ -404,6 +406,10 @@
   box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
   position: relative;
   overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .ctaButton::before {
@@ -433,6 +439,8 @@
 .ctaButtonSecondary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   background: transparent;
   color: #4338ca;
@@ -443,6 +451,10 @@
   cursor: pointer;
   font-weight: 600;
   text-decoration: none;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  overflow-wrap: anywhere;
   transition: all 0.3s ease;
 }
 

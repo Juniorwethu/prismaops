@@ -122,8 +122,10 @@
 
 .mainContent {
   padding: 2rem 2rem 6rem;
+  width: min(1400px, 100%);
   max-width: 1400px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .servicesGrid {
@@ -325,6 +327,8 @@
 .ctaButton {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   background: linear-gradient(135deg, #6366f1 0%, #3b82f6 50%, #2563eb 100%);
   color: #fff;
@@ -339,6 +343,11 @@
   box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
   position: relative;
   overflow: hidden;
+  width: min(100%, 420px);
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .ctaButton::before {
@@ -464,6 +473,7 @@
     padding: 0.875rem 1.5rem;
     font-size: 1rem;
     width: 100%;
+    max-width: 100%;
     justify-content: center;
   }
 }
