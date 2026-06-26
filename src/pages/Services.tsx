@@ -2,84 +2,51 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  LuGlobe, LuFolderGit2, LuGraduationCap, LuPalette, 
-  LuCode, LuDatabase, LuArrowRight, LuCheck
+  LuFolderGit2,
+  LuCode,
+  LuDatabase,
+  LuArrowRight,
+  LuCheck,
 } from 'react-icons/lu';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './Services.module.css';
 
 const servicesData = [
   {
-    icon: LuGlobe,
-    title: 'Web Design & Development',
-    description: 'Modern, responsive websites tailored to your brand.',
+    icon: LuDatabase,
+    title: 'Automation Sprint',
+    description: 'Fix one workflow fast and remove repeated manual steps.',
     features: [
-      'Portfolio & Landing Pages',
-      'Business Websites',
-      'E-commerce Solutions',
-      'Custom Web Applications'
+      'Manual follow-up cleanup',
+      'Spreadsheet and email automation',
+      'Simple approval flows',
+      'Quick handoff notes'
     ],
-    highlight: 'From R2,500'
-  },
-  {
-    icon: LuPalette,
-    title: 'Graphic Design & Branding',
-    description: 'Creative designs that make your brand stand out.',
-    features: [
-      'Logo & Brand Identity',
-      'Marketing Materials',
-      'Social Media Graphics',
-      'Presentation Design'
-    ],
-    highlight: 'From R800'
-  },
-  {
-    icon: LuFolderGit2,
-    title: 'GitHub & Portfolio Management',
-    description: 'Master version control and showcase your work professionally.',
-    features: [
-      'GitHub Training Sessions',
-      'Portfolio Organization',
-      'README Optimization',
-      'Project Deployment'
-    ],
-    highlight: 'From R600'
+    highlight: 'R5k-R15k'
   },
   {
     icon: LuCode,
-    title: 'Programming Training',
-    description: 'Learn to code with hands-on, project-based instruction.',
+    title: 'Internal Tool Build',
+    description: 'Dashboards, trackers, and admin tools for daily operations.',
     features: [
-      'C# & .NET Development',
-      'JavaScript & Web Tech',
-      'Database Management',
-      'Best Practices & Patterns'
+      'Live status dashboards',
+      'Client and job trackers',
+      'Admin tools for teams',
+      'Clear data layout'
     ],
-    highlight: 'From R1,000'
+    highlight: 'R10k-R25k'
   },
   {
-    icon: LuGraduationCap,
-    title: 'Student Project Support',
-    description: 'Expert guidance for academic and capstone projects.',
+    icon: LuFolderGit2,
+    title: 'Systems Audit',
+    description: 'Find wasted time, broken steps, and simple fixes to ship first.',
     features: [
-      'Project Planning & Design',
-      'Technical Implementation',
-      'Documentation & Reports',
-      'Presentation Preparation'
+      'Workflow review',
+      'Inefficiency checklist',
+      'Practical recommendations',
+      'Short action plan'
     ],
-    highlight: 'From R800'
-  },
-  {
-    icon: LuDatabase,
-    title: 'Business Solutions',
-    description: 'Professional services to streamline your operations.',
-    features: [
-      'Document Automation',
-      'Proposal Writing',
-      'System Setup & Organization',
-      'Ongoing Tech Support'
-    ],
-    highlight: 'From R400'
+    highlight: 'R2k-R7k'
   },
 ];
 
@@ -98,13 +65,13 @@ export const Services: React.FC = () => {
         <div className={styles.heroContent}>
           <div className={styles.heroBadge}>
             <LuCheck className={styles.badgeIcon} />
-            <span>Professional Services</span>
+            <span>Productized services</span>
           </div>
           <h1 className={styles.heroTitle}>
-            Comprehensive <span className={styles.gradientText}>Digital Solutions</span>
+            Three <span className={styles.gradientText}>small-business</span> offers that remove manual work.
           </h1>
           <p className={styles.heroSubtitle}>
-            From web development to training and branding, we offer everything you need to succeed in the digital world.
+            Clear scope, clear price range, and a result you can use right away.
           </p>
         </div>
       </header>
@@ -144,12 +111,12 @@ export const Services: React.FC = () => {
         {/* CTA Section */}
         <section className={styles.ctaSection}>
           <div className={styles.ctaContent}>
-            <h2 className={styles.ctaTitle}>Need a Custom Solution?</h2>
+              <h2 className={styles.ctaTitle}>Need help automating one part of your business?</h2>
             <p className={styles.ctaText}>
-              Every project is unique. Let's discuss your specific requirements and create a tailored plan that fits your goals and budget.
+                Tell us which task wastes the most time and we'll point you to the fastest fix.
             </p>
             <Link to="/contact" className={styles.ctaButton}>
-              Get a Free Consultation <LuArrowRight className={styles.buttonIcon} />
+                Book a 15-min automation audit <LuArrowRight className={styles.buttonIcon} />
             </Link>
           </div>
         </section>

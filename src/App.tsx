@@ -9,6 +9,7 @@ import { Portfolio } from './pages/Portfolio';
 import { GithubTraining } from './pages/GithubTraining';
 import ContactUs from './pages/ContactUs';
 import { Sample } from './pages/Sample';
+import { SampleCaseStudy } from './pages/SampleCaseStudy';
 import { WebUIDesign } from './pages/WebUIDesign';
 import { GraphicDesign } from './pages/GraphicDesign';
 
@@ -22,6 +23,7 @@ export const App: React.FC = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/sample" element={<Sample />} />
+            <Route path="/sample/:slug" element={<SampleCaseStudy />} />
             <Route path="/github-training" element={<GithubTraining />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/web-ui-design" element={<WebUIDesign />} />

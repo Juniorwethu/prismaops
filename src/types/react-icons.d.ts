@@ -15,5 +15,5 @@ declare module 'react-icons/*' {
 	export const __esModule: any;
 	export = {} as { [key: string]: IconType };
 }
-// react-icons type override removed. No custom declarations here.
+
 

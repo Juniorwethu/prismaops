@@ -1,54 +1,80 @@
 // src/pages/LandingPage.tsx
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LuComputer, LuPalette, LuGithub, LuCode, LuUsers, LuZap, LuCheck, LuArrowRight } from 'react-icons/lu';
+import {
+  LuArrowRight,
+  LuCheck,
+  LuGithub,
+  LuSearch,
+  LuSettings2,
+  LuTable2,
+  LuTimer,
+  LuWrench,
+} from 'react-icons/lu';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import styles from './LandingPage.module.css';
 
 const services = [
   {
-    icon: <LuComputer />,
-    title: 'Web & UI Design',
-    description: 'Stunning, modern websites and UI/UX designs that are responsive and user-friendly.',
-    link: '/web-ui-design',
+    icon: <LuWrench />,
+    title: 'Automation Sprint',
+    price: 'R5k-R15k',
+    summary: 'Fix one workflow fast.',
+    details: 'Replace manual steps with a small workflow that saves time immediately.',
+    link: '/contact',
   },
   {
-    icon: <LuPalette />,
-    title: 'Graphic Design',
-    description: 'Creative graphic design for branding, marketing materials, and digital content.',
-    link: '/graphic-design',
+    icon: <LuTable2 />,
+    title: 'Internal Tool Build',
+    price: 'R10k-R25k',
+    summary: 'Dashboards, trackers, and admin tools.',
+    details: 'Build a simple tool your team can use without spreadsheet chaos.',
+    link: '/contact',
   },
   {
-    icon: <LuGithub />,
-    title: 'GitHub Training',
-    description: 'Expert-led training to master Git and GitHub for seamless team collaboration.',
-    link: '/github-training',
+    icon: <LuSearch />,
+    title: 'Systems Audit',
+    price: 'R2k-R7k',
+    summary: 'Find inefficiencies and fix the worst ones first.',
+    details: 'Review the current process, identify bottlenecks, and leave with a clear plan.',
+    link: '/contact',
   },
 ];
 
-const features = [
+const beforeAfter = [
   {
-    icon: <LuCode />,
-    title: 'Modern Technology',
-    description: 'Built with cutting-edge tools and frameworks',
+    before: 'Manual Excel tracking',
+    after: 'Automated dashboard with live updates',
   },
   {
-    icon: <LuUsers />,
-    title: 'Client-Focused',
-    description: 'Your success is our top priority',
+    before: 'Copying form data into email threads',
+    after: 'Auto-routed requests with clear ownership',
   },
   {
-    icon: <LuZap />,
-    title: 'Fast Delivery',
-    description: 'Quick turnaround without compromising quality',
+    before: 'Chasing updates in chat',
+    after: 'One simple board everyone can check',
   },
 ];
 
-const stats = [
-  { value: '100+', label: 'Projects Completed' },
-  { value: '50+', label: 'Happy Clients' },
-  { value: '99%', label: 'Satisfaction Rate' },
-  { value: '24/7', label: 'Support Available' },
+const proofItems = [
+  {
+    title: 'GitHub projects',
+    text: 'See the code, structure, and delivery style behind the work.',
+  },
+  {
+    title: 'Demo screenshots',
+    text: 'Quick visual proof of dashboards, tools, and workflows.',
+  },
+  {
+    title: 'Built for real tasks',
+    text: 'Examples for admin work, client tracking, and reporting.',
+  },
+];
+
+const processSteps = [
+  'You explain the problem.',
+  'We build the solution in 7-14 days.',
+  'You save time immediately.',
 ];
 
 export const LandingPage: React.FC = () => {
@@ -61,91 +87,159 @@ export const LandingPage: React.FC = () => {
 
   return (
     <div className={`${styles.landingPage} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
-      {/* Hero Section */}
       <header className={`${styles.hero} ${isVisible ? styles.fadeIn : ''}`}>
         <div className={styles.heroContent}>
           <div className={styles.heroBadge}>
-            <LuCheck className={styles.badgeIcon} />
-            <span>Professional Digital Solutions</span>
+            <LuTimer className={styles.badgeIcon} />
+            <span>Small automation studio for busy businesses</span>
           </div>
           <h1 className={styles.heroTitle}>
-            Transform Your Vision Into 
-            <span className={styles.gradientText}> Digital Reality</span>
+            We build small software tools that save businesses time and manual work in under 14 days.
           </h1>
           <p className={styles.heroSubtitle}>
-            Empowering businesses with cutting-edge web development, stunning design, 
-            and expert GitHub training that drives results.
+            PrismaOps is a small automation studio for businesses that want fewer manual processes and faster operations.
           </p>
           <div className={styles.heroButtons}>
-            <Link to="/services" className={styles.ctaButton}>
-              Explore Our Services
+            <Link to="/contact" className={styles.ctaButton}>
+              Book a 15-min automation audit
               <LuArrowRight className={styles.buttonIcon} />
             </Link>
-            <Link to="/portfolio" className={styles.secondaryButton}>
-              View Portfolio
-            </Link>
+            <a href="#services" className={styles.secondaryButton}>
+              See the 3 services
+            </a>
+          </div>
+
+          <div className={styles.proofStrip}>
+            {proofItems.map((item) => (
+              <div key={item.title} className={styles.proofCard}>
+                <div className={styles.proofIcon}>
+                  <LuGithub />
+                </div>
+                <h3 className={styles.proofTitle}>{item.title}</h3>
+                <p className={styles.proofText}>{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </header>
 
-      {/* Stats Section */}
-      <section className={styles.statsSection}>
-        <div className={styles.statsContainer}>
-          {stats.map((stat, index) => (
-            <div key={index} className={styles.statItem}>
-              <div className={styles.statValue}>{stat.value}</div>
-              <div className={styles.statLabel}>{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <main className={styles.mainContent}>
-        {/* Features Section */}
-        <section className={styles.featuresSection}>
-          <div className={styles.featuresList}>
-            {features.map((feature, index) => (
-              <div key={index} className={styles.featureItem}>
-                <div className={styles.featureIcon}>{feature.icon}</div>
-                <h3 className={styles.featureTitle}>{feature.title}</h3>
-                <p className={styles.featureDescription}>{feature.description}</p>
-              </div>
-            ))}
+        <section className={styles.problemSection}>
+          <div className={styles.sectionHeading}>
+            <p className={styles.sectionEyebrow}>The problem</p>
+            <h2 className={styles.sectionTitle}>Most small businesses waste hours on manual work every week.</h2>
+            <p className={styles.sectionCopy}>
+              The fix is usually not a big rebuild. It is one small tool, one automation, or one better process.
+            </p>
+          </div>
+
+          <div className={styles.problemGrid}>
+            <div className={styles.problemCard}>
+              <LuSettings2 className={styles.problemIcon} />
+              <h3>Tasks get scattered</h3>
+              <p>Work ends up split across spreadsheets, inboxes, and chat threads.</p>
+            </div>
+            <div className={styles.problemCard}>
+              <LuSearch className={styles.problemIcon} />
+              <h3>No clear process</h3>
+              <p>People repeat the same steps because there is no simple system to follow.</p>
+            </div>
+            <div className={styles.problemCard}>
+              <LuTimer className={styles.problemIcon} />
+              <h3>Time gets lost</h3>
+              <p>Small manual jobs add up and eat into the work that grows the business.</p>
+            </div>
           </div>
         </section>
 
-        {/* Services Section */}
-        <section className={styles.servicesSection}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Our Services</h2>
-            <p className={styles.sectionSubtitle}>
-              Comprehensive solutions tailored to your unique needs
-            </p>
+        <section id="services" className={styles.servicesSection}>
+          <div className={styles.sectionHeading}>
+            <p className={styles.sectionEyebrow}>Services</p>
+            <h2 className={styles.sectionTitle}>Only 3 productized offers.</h2>
+            <p className={styles.sectionCopy}>Clear scope, clear price range, and a result you can use right away.</p>
           </div>
+
           <div className={styles.cardsContainer}>
             {services.map((service, index) => (
-              <div key={service.title} className={styles.serviceCard} style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className={styles.cardIcon}>{service.icon}</div>
+              <Link key={service.title} to={service.link} className={styles.serviceCard} style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className={styles.serviceHeader}>
+                  <div className={styles.cardIcon}>{service.icon}</div>
+                  <span className={styles.priceTag}>{service.price}</span>
+                </div>
                 <h3 className={styles.cardTitle}>{service.title}</h3>
-                <p className={styles.cardDescription}>{service.description}</p>
-                <Link to={service.link} className={styles.cardLink}>
-                  Learn More <LuArrowRight className={styles.linkIcon} />
-                </Link>
+                <p className={styles.cardOutcome}>{service.summary}</p>
+                <p className={styles.cardDescription}>{service.details}</p>
+                <span className={styles.cardLink}>
+                  Show me what I can automate <LuArrowRight className={styles.linkIcon} />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.examplesSection}>
+          <div className={styles.sectionHeading}>
+            <p className={styles.sectionEyebrow}>Before / after</p>
+            <h2 className={styles.sectionTitle}>Simple examples that show the outcome.</h2>
+          </div>
+          <div className={styles.examplesGrid}>
+            {beforeAfter.map((item) => (
+              <div key={item.before} className={styles.exampleCard}>
+                <div className={styles.exampleLabel}>Before</div>
+                <p className={styles.exampleText}>{item.before}</p>
+                <div className={styles.exampleArrow}>
+                  <LuArrowRight />
+                </div>
+                <div className={styles.exampleLabel}>After</div>
+                <p className={styles.exampleText}>{item.after}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Final CTA */}
+        <section className={styles.proofSection}>
+          <div className={styles.sectionHeading}>
+            <p className={styles.sectionEyebrow}>Proof</p>
+            <h2 className={styles.sectionTitle}>Show the work, even if we are early.</h2>
+            <p className={styles.sectionCopy}>GitHub repos, screenshots, and small case studies are enough to build trust.</p>
+          </div>
+          <div className={styles.proofGrid}>
+            {proofItems.map((item) => (
+              <div key={item.title} className={styles.proofCard}>
+                <div className={styles.proofIcon}>
+                  <LuGithub />
+                </div>
+                <h3 className={styles.proofTitle}>{item.title}</h3>
+                <p className={styles.proofText}>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.processSection}>
+          <div className={styles.sectionHeading}>
+            <p className={styles.sectionEyebrow}>How it works</p>
+            <h2 className={styles.sectionTitle}>Fast, clear, and easy to start.</h2>
+          </div>
+          <div className={styles.processGrid}>
+            {processSteps.map((step, index) => (
+              <div key={step} className={styles.processCard}>
+                <div className={styles.processNumber}>0{index + 1}</div>
+                <p className={styles.processText}>{step}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className={styles.finalCta}>
           <div className={styles.ctaContent}>
-            <h2 className={styles.ctaTitle}>Ready to Elevate Your Business?</h2>
+            <p className={styles.sectionEyebrow}>Ready to start</p>
+            <h2 className={styles.ctaTitle}>Let's automate one part of your business this week.</h2>
             <p className={styles.ctaText}>
-              Let's collaborate to create something extraordinary. Get in touch today 
-              and let's discuss how we can bring your vision to life.
+              Send one workflow, tracker, or admin task. We will tell you what can be simplified and how fast we can build it.
             </p>
             <Link to="/contact" className={styles.ctaButton}>
-              Start Your Project
+              Book a 15-min automation audit
               <LuArrowRight className={styles.buttonIcon} />
             </Link>
           </div>

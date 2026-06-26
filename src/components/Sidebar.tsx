@@ -4,8 +4,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   LuRocket, 
   LuWrench, 
-  LuComputer, 
-  LuPalette, 
   LuGem, 
   LuGithub, 
   LuMail, 
@@ -22,12 +20,9 @@ interface SidebarProps {
 const navItems = [
   { path: '/', icon: LuRocket, label: 'Home' },
   { path: '/services', icon: LuWrench, label: 'Services' },
-  { path: '/web-ui-design', icon: LuComputer, label: 'Web & UI Design' },
-  { path: '/graphic-design', icon: LuPalette, label: 'Graphic Design' },
-  { path: '/portfolio', icon: LuGem, label: 'Portfolio' },
-  { path: '/github-training', icon: LuGithub, label: 'GitHub Training' },
-  { path: '/contact', icon: LuMail, label: 'Contact Us' },
-  { path: '/sample', icon: LuFileText, label: 'Portfolio Samples' },
+  { path: '/portfolio', icon: LuGem, label: 'Work' },
+  { path: '/contact', icon: LuMail, label: 'Book Audit' },
+  { path: '/sample', icon: LuFileText, label: 'Sample Builds' },
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {

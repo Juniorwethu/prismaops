@@ -20,14 +20,14 @@ interface ThemeContextType {
 }
 
 const lightTheme: ThemeColors = {
-  background: '#ffffff',
-  cardBackground: '#f8f9fa',
-  text: '#212529',
-  textSecondary: '#6c757d',
-  primary: '#2764b4ff',
-  accent: '#0a27ff',
-  border: '#dee2e6',
-  shadow: 'rgba(0, 0, 0, 0.1)'
+  background: '#f3f4f6',
+  cardBackground: '#ffffff',
+  text: '#111827',
+  textSecondary: '#6b7280',
+  primary: '#6366f1',
+  accent: '#2563eb',
+  border: '#dbe3f0',
+  shadow: 'rgba(99, 102, 241, 0.12)'
 };
 
 const darkTheme: ThemeColors = {
@@ -35,10 +35,10 @@ const darkTheme: ThemeColors = {
   cardBackground: '#1e1e1e',
   text: '#ffffff',
   textSecondary: '#ddd',
-  primary: '#2764b4ff',
-  accent: '#59c2ffff',
+  primary: '#6366f1',
+  accent: '#60a5fa',
   border: '#333',
-  shadow: 'rgba(39, 100, 180, 0.3)'
+  shadow: 'rgba(99, 102, 241, 0.3)'
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -58,7 +58,7 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     const savedTheme = localStorage.getItem('theme') as Theme;
-    return savedTheme || 'dark';
+    return savedTheme || 'light';
   });
 
   useEffect(() => {

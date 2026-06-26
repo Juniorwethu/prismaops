@@ -1,15 +1,14 @@
 // src/pages/Portfolio.tsx
 import React, { useState, useEffect } from 'react';
-import { 
-  LuPaintbrush, 
-  LuFileText, 
-  LuRocket, 
+import {
+  LuFileText,
+  LuRocket,
   LuSearch,
   LuCheck,
   LuArrowRight,
   LuSparkles,
   LuZap,
-  LuGem
+  LuGem,
 } from 'react-icons/lu';
 import styles from './Portfolio.module.css';
 
@@ -20,62 +19,42 @@ const Portfolio: React.FC = () => {
     setIsVisible(true);
   }, []);
 
-  const portfolioServices = [
-    {
-      icon: LuPaintbrush,
-      title: 'Portfolio Design & Development',
-      description: 'Custom-built professional portfolio websites that showcase your work beautifully.',
-      features: [
-        'Responsive web design',
-        'Custom domain setup',
-        'SEO optimization',
-        'Performance optimization',
-        'Contact form integration',
-        'Social media integration'
-      ],
-      price: 'From R2,500'
-    },
+  const portfolioExamples = [
     {
       icon: LuFileText,
-      title: 'Portfolio Content Management',
-      description: 'Professional organization and presentation of your projects to tell compelling stories.',
+      title: 'Dashboard Build Example',
+      description: 'A small internal dashboard for tracking work without spreadsheet chaos.',
       features: [
-        'Project case study writing',
-        'Content organization',
-        'Professional copywriting',
-        'Image optimization',
-        'Skills presentation',
-        'Achievement highlighting'
+        'Live status views',
+        'Cleaner reporting',
+        'Simple team handoff',
+        'Fast daily use'
       ],
-      price: 'From R800'
+      price: 'Example'
     },
     {
       icon: LuRocket,
-      title: 'Portfolio Hosting & Maintenance',
-      description: 'Complete hosting solution with ongoing maintenance and updates.',
+      title: 'Client Tracking Example',
+      description: 'A lightweight tracker for requests, follow-ups, and next actions.',
       features: [
-        'Domain registration',
-        'Web hosting setup',
-        'SSL certificate',
-        'Regular backups',
-        'Security monitoring',
-        'Monthly updates'
+        'Request intake',
+        'Follow-up reminders',
+        'Status visibility',
+        'Less admin work'
       ],
-      price: 'From R300/month'
+      price: 'Example'
     },
     {
       icon: LuSearch,
-      title: 'Portfolio Audit & Optimization',
-      description: 'Comprehensive review of your existing portfolio with actionable recommendations.',
+      title: 'Systems Audit Example',
+      description: 'A short review that turns messy operations into a simple action plan.',
       features: [
-        'UX/UI audit',
-        'Content review',
-        'Performance analysis',
-        'SEO assessment',
-        'Conversion optimization',
-        'Detailed report'
+        'Workflow review',
+        'Bottleneck scan',
+        'Quick wins',
+        'Implementation notes'
       ],
-      price: 'From R600'
+      price: 'Example'
     }
   ];
 
@@ -104,16 +83,15 @@ const Portfolio: React.FC = () => {
         <div className={styles.heroContent}>
           <div className={styles.heroBadge}>
             <LuSparkles className={styles.badgeIcon} />
-            <span>Professional Portfolios</span>
+            <span>Proof of work</span>
           </div>
           
           <h1 className={styles.heroTitle}>
-            <span className={styles.gradientText}>Portfolio</span> Services
+            <span className={styles.gradientText}>Small builds</span> that solve real tasks.
           </h1>
           
           <p className={styles.heroSubtitle}>
-            Stand out from the crowd with a professional portfolio that showcases your talents 
-            and attracts opportunities. From design to deployment, we handle everything.
+            See examples of dashboards, trackers, and workflow fixes built for business use.
           </p>
 
           {/* Benefits Grid */}
@@ -136,7 +114,7 @@ const Portfolio: React.FC = () => {
       {/* Services Grid */}
       <section className={styles.servicesSection}>
         <div className={styles.servicesGrid}>
-          {portfolioServices.map((service, index) => (
+          {portfolioExamples.map((service, index) => (
             <div
               key={index}
               className={styles.serviceCard}
@@ -166,10 +144,9 @@ const Portfolio: React.FC = () => {
       {/* CTA Section */}
       <section className={styles.ctaSection}>
         <div className={styles.ctaContent}>
-          <h2 className={styles.ctaTitle}>Ready to Build Your Dream Portfolio?</h2>
+          <h2 className={styles.ctaTitle}>Want to see what could be built for your workflow?</h2>
           <p className={styles.ctaText}>
-            Let's create a portfolio that opens doors to your future opportunities. 
-            Contact us today for a free consultation and take the first step toward success.
+            Browse the examples, then book an audit if you want a faster, simpler process.
           </p>
           <div className={styles.ctaButtons}>
             <a href="mailto:PrismaOps@outlook.com" className={styles.ctaButton}>

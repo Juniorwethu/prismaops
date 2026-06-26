@@ -74,16 +74,15 @@ const ContactUs: React.FC = () => {
         <div className={styles.heroContent}>
           <div className={styles.heroBadge}>
             <LuSparkles className={styles.badgeIcon} />
-            <span>Let's Connect</span>
+            <span>Book an automation audit</span>
           </div>
           
           <h1 className={styles.heroTitle}>
-            Get In <span className={styles.gradientText}>Touch</span>
+            Tell us what <span className={styles.gradientText}>manual work</span> you want to remove.
           </h1>
           
           <p className={styles.heroSubtitle}>
-            Ready to transform your ideas into reality? Our team is here to help you build something amazing. 
-            Reach out and let's start your next project together.
+            Send one workflow, tracker, or admin task. We will tell you what can be simplified and how fast we can build it.
           </p>
 
           {/* Quick Stats */}
@@ -169,8 +168,7 @@ const ContactUs: React.FC = () => {
             Based in <span className={styles.gradientText}>South Africa</span>
           </h3>
           <p className={styles.locationText}>
-            Serving clients worldwide with cutting-edge web solutions, UI/UX design, 
-            and professional development training. No matter where you are, we're ready to help.
+            Serving small businesses with automation sprints, internal tools, and practical systems audits.
           </p>
         </div>
       </section>
@@ -178,14 +176,13 @@ const ContactUs: React.FC = () => {
       {/* CTA Section */}
       <section className={styles.ctaSection}>
         <div className={styles.ctaContent}>
-          <h2 className={styles.ctaTitle}>Ready to Start Your Project?</h2>
+          <h2 className={styles.ctaTitle}>Ready to automate one part of your business?</h2>
           <p className={styles.ctaText}>
-            Let's discuss your ideas and create something extraordinary together. 
-            We're excited to hear from you!
+            Use the button below to book a quick audit or send a short description of the task you want to remove.
           </p>
           <a href="mailto:PrismaOps@outlook.com" className={styles.ctaButton}>
             <LuSend className={styles.buttonIcon} />
-            <span>Send us a message</span>
+            <span>Book a 15-min automation audit</span>
             <LuArrowRight className={styles.buttonArrow} />
           </a>
         </div>
