@@ -5,7 +5,6 @@ import {
   LuRocket, 
   LuWrench, 
   LuGem, 
-  LuGithub, 
   LuMail, 
   LuFileText 
 } from 'react-icons/lu';

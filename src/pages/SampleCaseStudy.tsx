@@ -1,7 +1,7 @@
 // src/pages/SampleCaseStudy.tsx
 import React, { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { LuArrowLeft, LuArrowRight, LuBadgeCheck, LuClock3, LuLayers3, LuTarget, LuTimer } from 'react-icons/lu';
+import { LuArrowLeft, LuArrowRight, LuBadgeCheck, LuClock3, LuLayers3, LuTarget } from 'react-icons/lu';
 import { SidebarCollapseContext } from '../contexts/SidebarCollapseContext';
 import { getSampleBuildBySlug, sampleBuilds } from '../data/sampleBuilds';
 import styles from './SampleCaseStudy.module.css';
